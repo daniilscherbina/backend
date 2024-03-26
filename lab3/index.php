@@ -51,10 +51,17 @@ if (!is_valid_bio($_POST['biography'])) {
   $errors = TRUE;
 }
 
-
-// *************
-// Тут необходимо проверить правильность заполнения всех остальных полей.
-// *************
+require_once "database.php";
+try {
+  if (!language_exists($_POST['lan'])) {
+    print('Заполните корректно любимые языки программирования.<br/>');
+    $errors = TRUE;
+  }
+}
+catch(PDOException $e){
+  print('Error : ' . $e->getMessage());
+  exit();
+}
 
 if ($errors) {
   // При наличии ошибок завершаем работу скрипта.
