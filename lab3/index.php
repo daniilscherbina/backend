@@ -53,7 +53,7 @@ if (!is_valid_bio($_POST['biography'])) {
 
 require_once "database.php";
 try {
-    $selectedOptions = $_POST['mySelect'];
+    $selectedOptions = $_POST['lan'];
             echo "Выбранные значения: ";
             foreach ($selectedOptions as $option) {
                 echo $option . ", ";
