@@ -24,6 +24,7 @@ function language_exists($ids) {
 
 function new_answer($fio, $tel, $date_birth, $email, $pol, $biography, $ids) {
   $db = create_db_connection();
+  $db->beginTransaction();
   $stmt = $db->prepare("INSERT INTO answer (fio, tel, date_birth, email, pol, biography) VALUES (:fio, :tel, :date_birth, :email, :pol, :biography)");
 
   // Привязка параметров
