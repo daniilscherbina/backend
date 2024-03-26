@@ -16,17 +16,38 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   // Завершаем работу скрипта.
   exit();
 }
-// Иначе, если запрос был методом POST, т.е. нужно проверить данные и сохранить их в XML-файл.
+// Иначе, если запрос был методом POST, т.е. нужно проверить данные и сохранить их
 
 // Проверяем ошибки.
 $errors = FALSE;
-if (empty($_POST['fio'])) {
-  print('Заполните имя.<br/>');
+require_once "validator.php";
+if (!is_valid_fio($_POST['fio'])) {
+  print('Заполните корректно имя.<br/>');
   $errors = TRUE;
 }
 
-if (empty($_POST['year']) || !is_numeric($_POST['year']) || !preg_match('/^\d+$/', $_POST['year'])) {
-  print('Заполните год.<br/>');
+if (!is_valid_data_birth($_POST['date_birth'])) {
+  print('Заполните корректно дату рождения.<br/>');
+  $errors = TRUE;
+}
+
+if (!is_valid_tel($_POST['tel'])) {
+  print('Заполните корректно номер телефона.<br/>');
+  $errors = TRUE;
+}
+
+if (!is_valid_email($_POST['email'])) {
+  print('Заполните корректно email.<br/>');
+  $errors = TRUE;
+}
+
+if (!is_valid_pol($_POST['pol'])) {
+  print('Заполните корректно пол.<br/>');
+  $errors = TRUE;
+}
+
+if (!is_valid_bio($_POST['biography'])) {
+  print('Заполните корректно биографию.<br/>');
   $errors = TRUE;
 }
 
