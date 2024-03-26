@@ -15,7 +15,7 @@ function get_languages() {
 function language_exists($ids) {
     $db = create_db_connection();
     $placeholders = rtrim(str_repeat('?, ', count($ids)), ', '); // Генерация плейсхолдеров для запроса
-    $query = $db->prepare("SELECT COUNT(*) FROM language WHERE id IN ($placeholders)");
+    $query = $db->prepare("SELECT COUNT(*) FROM language WHERE id_lan IN ($placeholders)");
     $query->execute($ids);
     $count = $query->fetchColumn();
     return $count > 0;
