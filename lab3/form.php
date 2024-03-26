@@ -12,7 +12,11 @@
   <input type="email" id="email" name="email" required><br><br>
 
   <label for="pol">Пол:</label>
-  <input type="text" id="pol" name="pol" required><br><br>
+  <select " id="pol" name="pol">
+    <option value="мужской">мужской</option>
+    <option value="женский">женский</option>
+  </select>
+  <br><br>
 
   <label for="biography">Биография:</label><br>
   <textarea id="biography" name="biography" rows="4" cols="50" required></textarea><br><br>
