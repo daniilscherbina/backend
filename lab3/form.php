@@ -21,6 +21,7 @@
   <label for="biography">Биография:</label><br>
   <textarea id="biography" name="biography" rows="4" cols="50"></textarea><br><br>
 
+  <label for="lan">Любимые языки::</label>
   <select multiple size="10" name="lan" id="lan">
     <?php
     require_once "database.php";
