@@ -18,9 +18,17 @@
   <textarea id="biography" name="biography" rows="4" cols="50" required></textarea><br><br>
 
   <select name="lan">
-    <?php 
-    for ($i = 1922; $i <= 2022; $i++) {
-      printf('<option value="%d">%d год</option>', $i, $i);
+    <?php
+    require_once "database.php";
+    try {
+      $lan = get_languages();
+      while ($row = $lan->fetch()) {
+        printf('<option value="%d">%s</option>', $row['id_lan'], $row['name']);
+      }
+    }
+    catch(PDOException $e){
+      print('Error : ' . $e->getMessage());
+      exit();
     }
     ?>
   </select>
