@@ -19,7 +19,7 @@
   <br><br>
 
   <label for="biography">Биография:</label><br>
-  <textarea id="biography" name="biography" rows="4" cols="50" required></textarea><br><br>
+  <textarea id="biography" name="biography" rows="4" cols="50"></textarea><br><br>
 
   <select name="lan">
     <?php
