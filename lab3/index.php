@@ -57,6 +57,11 @@ try {
     print('Заполните корректно любимые языки программирования.<br/>');
     $errors = TRUE;
   }
+  $selectedOptions = $_POST['mySelect'];
+            echo "Выбранные значения: ";
+            foreach ($selectedOptions as $option) {
+                echo $option . ", ";
+            }
 }
 catch(PDOException $e){
   print('Error : ' . $e->getMessage());
