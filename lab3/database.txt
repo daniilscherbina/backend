@@ -1,4 +1,5 @@
 <?php
+// чтобы не заливать на github логин и пароль залит этот шаблон
 $user = 'db';
 $pass = '123';
 function create_db_connection() {
