@@ -11,4 +11,13 @@ function get_languages() {
   $db = create_db_connection();
   return $db->query("SELECT * FROM language");
 }
+
+function languageExists($id) {
+    $db = create_db_connection();
+    $query = $db->prepare("SELECT COUNT(*) FROM language WHERE id = :id");
+    $query->bindParam(':id', $id);
+    $query->execute();
+    $count = $query->fetchColumn();
+    return $count > 0;
+}
 ?>
