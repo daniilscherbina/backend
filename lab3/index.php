@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <titleЛабораторная работа 3</title>
-</head>
-<body>
 <?php
 // Отправляем браузеру правильную кодировку,
 // файл index.php должен быть в кодировке UTF-8 без BOM.
@@ -113,5 +107,3 @@ $stmt->execute();
 // Если ошибок при этом не видно, то необходимо настроить параметр display_errors для PHP.
 header('Location: ?save=1');
 ?>
-</body>
-</html>
