@@ -22,8 +22,8 @@
     
       <label for="pol">Пол:</label>
       <select " id="pol" name="pol">
-        <option value="мужской">мужской</option>
-        <option value="женский">женский</option>
+        <option value="м">мужской</option>
+        <option value="ж">женский</option>
       </select>
       <br><br>
     
