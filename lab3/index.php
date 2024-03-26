@@ -53,11 +53,6 @@ if (!is_valid_bio($_POST['biography'])) {
 
 require_once "database.php";
 try {
-    $selectedOptions = $_POST['lan'];
-            echo "Выбранные значения: ";
-            foreach ($selectedOptions as $option) {
-                echo $option . ", ";
-            }
   if (!isset($_POST['lan']) || !language_exists($_POST['lan'])) {
     print('Заполните корректно любимые языки программирования.<br/>');
     $errors = TRUE;
