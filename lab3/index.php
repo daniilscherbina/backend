@@ -53,15 +53,15 @@ if (!is_valid_bio($_POST['biography'])) {
 
 require_once "database.php";
 try {
-  if (!isset($_POST['lan']) || !language_exists($_POST['lan'])) {
-    print('Заполните корректно любимые языки программирования.<br/>');
-    $errors = TRUE;
-  }
-  $selectedOptions = $_POST['mySelect'];
+    $selectedOptions = $_POST['mySelect'];
             echo "Выбранные значения: ";
             foreach ($selectedOptions as $option) {
                 echo $option . ", ";
             }
+  if (!isset($_POST['lan']) || !language_exists($_POST['lan'])) {
+    print('Заполните корректно любимые языки программирования.<br/>');
+    $errors = TRUE;
+  }
 }
 catch(PDOException $e){
   print('Error : ' . $e->getMessage());
