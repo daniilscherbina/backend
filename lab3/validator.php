@@ -12,7 +12,7 @@ function is_valid_data_birth($birth) {
   return !empty($birth) && preg_match("/^(0[1-9]|[12][0-9]|3[01])\.(0[1-9]|1[012])\.(19|20)\d\d$/", $birth);
 }
 function is_valid_pol($pol) {
-  return !empty($pol) && preg_match("/^(мужской|женский)$/", $pol);
+  return !empty($pol) && preg_match("/^(м|ж)$/", $pol);
 }
 function is_valid_bio($bio) {
   return !empty($bio) && preg_match("/^[a-zA-Zа-яА-Я0-9\s.,!?]+$/", $bio);
