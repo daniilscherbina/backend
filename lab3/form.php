@@ -1,15 +1,15 @@
 <form action="" method="POST">
   <label for="fio">ФИО:</label>
-  <input type="text" id="fio" name="fio" required><br><br>
+  <input type="text" id="fio" name="fio"><br><br>
 
   <label for="tel">Телефон:</label>
-  <input type="text" id="tel" name="tel" required><br><br>
+  <input type="text" id="tel" name="tel"><br><br>
 
   <label for="date_birth">Дата рождения:</label>
-  <input type="text" id="date_birth" name="date_birth" required><br><br>
+  <input type="text" id="date_birth" name="date_birth"><br><br>
 
   <label for="email">Email:</label>
-  <input type="email" id="email" name="email" required><br><br>
+  <input type="email" id="email" name="email"><br><br>
 
   <label for="pol">Пол:</label>
   <select " id="pol" name="pol">
