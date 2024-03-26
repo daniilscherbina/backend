@@ -14,16 +14,10 @@ function get_languages() {
 
 function language_exists($ids) {
     $db = create_db_connection();
-    $existing_ids = array();
-    foreach ($ids as $id) {
-        $query = $db->prepare("SELECT id FROM language WHERE id = :id");
-        $query->bindParam(':id', $id);
-        $query->execute();
-        $result = $query->fetchColumn();
-        if ($result) {
-            $existing_ids[] = $id;
-        }
-    }
-    return count($existing_ids) === count($ids);
+    $placeholders = rtrim(str_repeat('?, ', count($ids)), ', '); // Генерация плейсхолдеров для запроса
+    $query = $db->prepare("SELECT COUNT(*) FROM language WHERE id IN ($placeholders)");
+    $query->execute($ids);
+    $count = $query->fetchColumn();
+    return $count > 0;
 }
 ?>
