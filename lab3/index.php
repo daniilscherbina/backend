@@ -53,8 +53,7 @@ if (!is_valid_bio($_POST['biography'])) {
 
 require_once "database.php";
 try {
-  print($_POST['lan']);
-  if (!language_exists($_POST['lan'])) {
+  if (isset($_POST['lan']) && !language_exists($_POST['lan'])) {
     print('Заполните корректно любимые языки программирования.<br/>');
     $errors = TRUE;
   }
