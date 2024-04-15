@@ -57,39 +57,44 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 $errors = FALSE;
 require_once "validator.php";
 if (!is_valid_fio($_POST['fio'])) {
-  print('Заполните корректно имя.<br/>');
+  setcookie('fio_error', '1', time() + 24 * 60 * 60);
   $errors = TRUE;
 }
+setcookie('fio_value', '1', time() + 24 * 60 * 60);
 
 if (!is_valid_data_birth($_POST['date_birth'])) {
-  print('Заполните корректно дату рождения.<br/>');
+  setcookie('date_birth__error', '1', time() + 24 * 60 * 60);
   $errors = TRUE;
 }
+setcookie('date_birth_value', '1', time() + 24 * 60 * 60);
 
 if (!is_valid_tel($_POST['tel'])) {
-  print('Заполните корректно номер телефона.<br/>');
+  setcookie('tel_error', '1', time() + 24 * 60 * 60);
   $errors = TRUE;
 }
+setcookie('tel_value', '1', time() + 24 * 60 * 60);
 
 if (!is_valid_email($_POST['email'])) {
-  print('Заполните корректно email.<br/>');
+  setcookie('email_error', '1', time() + 24 * 60 * 60);
   $errors = TRUE;
 }
+setcookie('email_value', '1', time() + 24 * 60 * 60);
 
 if (!is_valid_pol($_POST['pol'])) {
-  print('Заполните корректно пол.<br/>');
+  setcookie('pol_error', '1', time() + 24 * 60 * 60);
   $errors = TRUE;
 }
 
 if (!is_valid_bio($_POST['biography'])) {
-  print('Заполните корректно биографию.<br/>');
+  setcookie('biography_error', '1', time() + 24 * 60 * 60);
   $errors = TRUE;
 }
+setcookie('biography_value', '1', time() + 24 * 60 * 60);
 
 require_once "database.php";
 try {
   if (!isset($_POST['lan']) || !language_exists($_POST['lan'])) {
-    print('Заполните корректно любимые языки программирования.<br/>');
+    setcookie('lan_error', '1', time() + 24 * 60 * 60);
     $errors = TRUE;
   }
 }
@@ -99,8 +104,20 @@ catch(PDOException $e){
 }
 
 if ($errors) {
-  // При наличии ошибок завершаем работу скрипта.
+  // При наличии ошибок перезагружаем страницу и завершаем работу скрипта.
+  header('Location: index.php');
   exit();
+}
+else {
+  // Удаляем Cookies с признаками ошибок.
+  setcookie('fio_error', '', 100000);
+  setcookie('tel_error', '', 100000);
+  setcookie('date_birth_error', '', 100000);
+  setcookie('email_error', '', 100000);
+  setcookie('pol_error', '', 100000);
+  setcookie('biography_error', '', 100000);
+  setcookie('lan_error', '', 100000);
+  // TODO: тут необходимо удалить остальные Cookies.
 }
 
 // Сохранение в базу данных.
@@ -112,5 +129,5 @@ catch(PDOException $e){
   exit();
 }
 
-header('Location: ?save=1');
+setcookie('save', '1');
 ?>
