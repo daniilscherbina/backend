@@ -39,7 +39,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
   // Складываем предыдущие значения полей в массив, если есть.
   $values = array();
-  $values['fio'] = empty($_COOKIE['fio_value']) ? '' : $_COOKIE['fio_value'];
+  values_set('fio', $values);
+  values_set('tel', $values);
+  values_set('date_birth', $values);
+  values_set('email', $values);
+  values_set('pol', $values);
+  values_set('biography', $values);
+  values_set('lan', $values);
   //
   include('form.php');
   // Завершаем работу скрипта.
