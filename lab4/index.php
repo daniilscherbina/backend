@@ -7,11 +7,40 @@ header('Content-Type: text/html; charset=UTF-8');
 // и другие сведения о клиненте и сервере, например метод текущего запроса $_SERVER['REQUEST_METHOD'].
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   // В суперглобальном массиве $_GET PHP хранит все параметры, переданные в текущем запросе через URL.
-  if (!empty($_GET['save'])) {
+  $messages = array();
+
+  // В суперглобальном массиве $_COOKIE PHP хранит все имена и значения куки текущего запроса.
+  // Выдаем сообщение об успешном сохранении.
+  if (!empty($_COOKIE['save'])) {
+    // Удаляем куку, указывая время устаревания в прошлом.
+    setcookie('save', '', 100000);
     // Если есть параметр save, то выводим сообщение пользователю.
-    print('Спасибо, результаты сохранены.');
+    $messages[] = 'Спасибо, результаты сохранены.';
   }
-  // Включаем содержимое файла form.php.
+
+  // Складываем признак ошибок в массив.
+  $errors = array();
+  $errors['fio'] = !empty($_COOKIE['fio_error']);
+  $errors['tel'] = !empty($_COOKIE['tel_error']);
+  $errors['date_birth'] = !empty($_COOKIE['date_birth_error']);
+  $errors['email'] = !empty($_COOKIE['email_error']);
+  $errors['pol'] = !empty($_COOKIE['pol_error']);
+  $errors['biography'] = !empty($_COOKIE['biography_error']);
+  $errors['lan'] = !empty($_COOKIE['lan_error']);
+  
+  require_once "form_cookies.php";
+  error_cookie_cl('fio', 'Укажите имя', $errors);
+  error_cookie_cl('tel', 'Укажите номер телефона', $errors);
+  error_cookie_cl('date_birth', 'Укажите дату рождения', $errors);
+  error_cookie_cl('email', 'Укажите email', $errors);
+  error_cookie_cl('pol', 'Укажите корректный пол', $errors);
+  error_cookie_cl('biography', 'В данном поле допустимо использование следующих символов: ', $errors);
+  error_cookie_cl('lan', 'Выберете языки из списка ниже', $errors);
+
+  // Складываем предыдущие значения полей в массив, если есть.
+  $values = array();
+  $values['fio'] = empty($_COOKIE['fio_value']) ? '' : $_COOKIE['fio_value'];
+  //
   include('form.php');
   // Завершаем работу скрипта.
   exit();
