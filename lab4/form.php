@@ -9,29 +9,29 @@
   <body>
     <form action="" method="POST">
       <label for="fio">ФИО:</label>
-      <input type="text" id="fio" name="fio"><br><br>
+      <input type="text" id="fio" name="fio" <?php if ($errors['fio']) {print 'class="error"';} ?> value="<?php print $values['fio']; ?>"><br><br>
     
       <label for="tel">Телефон:</label>
-      <input type="text" id="tel" name="tel"><br><br>
+      <input type="text" id="tel" name="tel" <?php if ($errors['tel']) {print 'class="error"';} ?> value="<?php print $values['tel']; ?>"><br><br>
     
       <label for="date_birth">Дата рождения:</label>
-      <input type="text" id="date_birth" name="date_birth"><br><br>
+      <input type="text" id="date_birth" name="date_birth" <?php if ($errors['date_birth']) {print 'class="error"';} ?> value="<?php print $values['date_birth']; ?>"><br><br>
     
       <label for="email">Email:</label>
-      <input type="email" id="email" name="email"><br><br>
+      <input type="email" id="email" name="email" <?php if ($errors['email']) {print 'class="error"';} ?> value="<?php print $values['email']; ?>"><br><br>
     
       <label for="pol">Пол:</label>
-      <select " id="pol" name="pol">
+      <select " id="pol" name="pol" <?php if ($errors['pol']) {print 'class="error"';} ?> >
         <option value="м">мужской</option>
         <option value="ж">женский</option>
       </select>
       <br><br>
     
       <label for="biography">Биография:</label><br>
-      <textarea id="biography" name="biography" rows="4" cols="50"></textarea><br><br>
+      <textarea id="biography" name="biography" rows="4" cols="50" <?php if ($errors['biography']) {print 'class="error"';} ?> value="<?php print $values['biography']; ?>"></textarea><br><br>
     
       <label for="lan">Любимые языки::</label>
-      <select multiple size="10" name="lan[]" id="lan">
+      <select multiple size="10" name="lan[]" id="lan" <?php if ($errors['lan']) {print 'class="error"';} ?> >
         <?php
         require_once "database.php";
         try {
@@ -48,6 +48,16 @@
       </select>
       
       <input type="submit" value="Отправить">
+      <?php
+      if (!empty($messages)) {
+        print('<div id="messages">');
+        // Выводим все сообщения.
+        foreach ($messages as $message) {
+          print($message);
+        }
+        print('</div>');
+      }
+      ?>
     </form>
   </body>
 </html>
