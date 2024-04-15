@@ -60,25 +60,25 @@ if (!is_valid_fio($_POST['fio'])) {
   setcookie('fio_error', '1', time() + 24 * 60 * 60);
   $errors = TRUE;
 }
-setcookie('fio_value', '1', time() + 24 * 60 * 60);
+setcookie('fio_value', $_POST['fio'], time() + 24 * 60 * 60);
 
 if (!is_valid_data_birth($_POST['date_birth'])) {
   setcookie('date_birth__error', '1', time() + 24 * 60 * 60);
   $errors = TRUE;
 }
-setcookie('date_birth_value', '1', time() + 24 * 60 * 60);
+setcookie('date_birth_value', $_POST['date_birth'], time() + 24 * 60 * 60);
 
 if (!is_valid_tel($_POST['tel'])) {
   setcookie('tel_error', '1', time() + 24 * 60 * 60);
   $errors = TRUE;
 }
-setcookie('tel_value', '1', time() + 24 * 60 * 60);
+setcookie('tel_value', $_POST['tel'], time() + 24 * 60 * 60);
 
 if (!is_valid_email($_POST['email'])) {
   setcookie('email_error', '1', time() + 24 * 60 * 60);
   $errors = TRUE;
 }
-setcookie('email_value', '1', time() + 24 * 60 * 60);
+setcookie('email_value', $_POST['email'], time() + 24 * 60 * 60);
 
 if (!is_valid_pol($_POST['pol'])) {
   setcookie('pol_error', '1', time() + 24 * 60 * 60);
@@ -89,7 +89,7 @@ if (!is_valid_bio($_POST['biography'])) {
   setcookie('biography_error', '1', time() + 24 * 60 * 60);
   $errors = TRUE;
 }
-setcookie('biography_value', '1', time() + 24 * 60 * 60);
+setcookie('biography_value', $_POST['biography'], time() + 24 * 60 * 60);
 
 require_once "database.php";
 try {
