@@ -1,5 +1,5 @@
 <?php 
-  function error_cookie_cl($name, $text, $errors) {
+  function error_cookie_cl($name, $text, &$errors) {
     if ($errors[$name]) {
       // Удаляем куки, указывая время устаревания в прошлом.
       setcookie($name . '_error', '', 100000);
@@ -9,7 +9,7 @@
     }
   }
 
-  function values_set($name, $values) {
+  function values_set($name, &$values) {
     $values[$name] = empty($_COOKIE[$name . '_value']) ? '' : $_COOKIE[$name . '_value'];
   }
 ?>
