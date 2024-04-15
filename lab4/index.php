@@ -29,13 +29,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   $errors['lan'] = !empty($_COOKIE['lan_error']);
   
   require_once "form_cookies.php";
-  error_cookie_cl('fio', 'Укажите имя', $errors);
-  error_cookie_cl('tel', 'Укажите номер телефона', $errors);
-  error_cookie_cl('date_birth', 'Укажите дату рождения', $errors);
-  error_cookie_cl('email', 'Укажите email', $errors);
-  error_cookie_cl('pol', 'Укажите корректный пол', $errors);
-  error_cookie_cl('biography', 'В данном поле допустимо использование следующих символов: ', $errors);
-  error_cookie_cl('lan', 'Выберете языки из списка ниже', $errors);
+  error_cookie_cl('fio', 'Укажите имя', $errors, $messages);
+  error_cookie_cl('tel', 'Укажите номер телефона', $errors, $messages);
+  error_cookie_cl('date_birth', 'Укажите дату рождения', $errors, $messages);
+  error_cookie_cl('email', 'Укажите email', $errors, $messages);
+  error_cookie_cl('pol', 'Укажите корректный пол', $errors, $messages);
+  error_cookie_cl('biography', 'В данном поле допустимо использование следующих символов: ', $errors, $messages);
+  error_cookie_cl('lan', 'Выберете языки из списка ниже', $errors, $messages);
 
   // Складываем предыдущие значения полей в массив, если есть.
   $values = array();
