@@ -8,4 +8,8 @@
       $messages[] = '<div class="error">' . text . '</div>';
     }
   }
+
+  function values_set($name, $values) {
+    $values[name] = empty($_COOKIE[name . '_value']) ? '' : $_COOKIE[name . '_value'];
+  }
 ?>
