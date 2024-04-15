@@ -27,6 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   $errors['pol'] = !empty($_COOKIE['pol_error']);
   $errors['biography'] = !empty($_COOKIE['biography_error']);
   $errors['lan'] = !empty($_COOKIE['lan_error']);
+  print($errors);
   
   require_once "form_cookies.php";
   error_cookie_cl('fio', 'Укажите имя', $errors);
