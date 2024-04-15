@@ -8,6 +8,16 @@
   </head>
   <body>
     <form action="" method="POST">
+            <?php
+      if (!empty($messages)) {
+        print('<div id="messages">');
+        // Выводим все сообщения.
+        foreach ($messages as $message) {
+          print($message);
+        }
+        print('</div>');
+      }
+      ?>
       <label for="fio">ФИО:</label>
       <input type="text" id="fio" name="fio" <?php if ($errors['fio']) {print 'class="error"';} ?> value="<?php print $values['fio']; ?>"><br><br>
     
@@ -48,16 +58,7 @@
       </select>
       
       <input type="submit" value="Отправить">
-      <?php
-      if (!empty($messages)) {
-        print('<div id="messages">');
-        // Выводим все сообщения.
-        foreach ($messages as $message) {
-          print($message);
-        }
-        print('</div>');
-      }
-      ?>
+
     </form>
   </body>
 </html>
