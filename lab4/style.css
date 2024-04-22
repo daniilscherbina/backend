@@ -25,6 +25,10 @@ input, select, textarea {
   box-sizing: border-box;
 }
 
+input[type="checkbox"] {
+  width: 25px;
+}
+
 input[type="submit"] {
   background-color: #4CAF50;
   color: white;
