@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   $errors['pol'] = !empty($_COOKIE['pol_error']);
   $errors['biography'] = !empty($_COOKIE['biography_error']);
   $errors['lan'] = !empty($_COOKIE['lan_error']);
-  $errors['lan'] = !empty($_COOKIE['no_error']);
+  $errors['no'] = !empty($_COOKIE['no_error']);
   
   require_once "form_cookies.php";
   error_cookie_cl('fio', 'Укажите имя', $errors, $messages);
@@ -124,6 +124,7 @@ else {
   setcookie('pol_error', '', 100000);
   setcookie('biography_error', '', 100000);
   setcookie('lan_error', '', 100000);
+  setcookie('no_error', '', 100000);
   // TODO: тут необходимо удалить остальные Cookies.
 }
 
