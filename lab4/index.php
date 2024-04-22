@@ -34,8 +34,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   error_cookie_cl('date_birth', 'Укажите дату рождения', $errors, $messages);
   error_cookie_cl('email', 'Укажите email', $errors, $messages);
   error_cookie_cl('pol', 'Укажите корректный пол', $errors, $messages);
-  error_cookie_cl('biography', 'В данном поле допустимо использование следующих символов: ', $errors, $messages);
-  error_cookie_cl('lan', 'Выберете языки из списка ниже', $errors, $messages);
+  error_cookie_cl('biography', 'В данном поле допустимо использование следующих символов: буквы кириллицы и латиницы, цифры, точка, запятая, восклицательный и вопросительный знак', $errors, $messages);
+  error_cookie_cl('lan', 'Выберете языки из списка выше', $errors, $messages);
 
   // Складываем предыдущие значения полей в массив, если есть.
   $values = array();
@@ -63,7 +63,7 @@ if (!is_valid_fio($_POST['fio'])) {
 setcookie('fio_value', $_POST['fio'], time() + 24 * 60 * 60);
 
 if (!is_valid_data_birth($_POST['date_birth'])) {
-  setcookie('date_birth__error', '1', time() + 24 * 60 * 60);
+  setcookie('date_birth_error', '1', time() + 24 * 60 * 60);
   $errors = TRUE;
 }
 setcookie('date_birth_value', $_POST['date_birth'], time() + 24 * 60 * 60);
