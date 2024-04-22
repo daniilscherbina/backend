@@ -103,7 +103,7 @@
         }
       ?>
       <input type="checkbox" id="checkbox" name="checkbox" value="yes">
-      <label for="checkbox">Я согласен с обработкой данных</label>
+      <label for="checkbox" class="ch">Я согласен с обработкой данных</label>
       <input type="submit" value="Отправить">
 
     </form>
