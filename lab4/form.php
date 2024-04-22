@@ -11,7 +11,7 @@
       <?php
         if (!empty($messages) && !empty($messages['yes'])) {
           print('<div id="yes_mess">');
-            print($message['yes']);
+            print($messages['yes']);
           print('</div>');
         }
       ?>
@@ -20,7 +20,7 @@
       <?php
         if (!empty($messages) && !empty($messages['fio'])) {
           print('<div id="fio_mess">');
-            print($message['fio']);
+            print($messages['fio']);
           print('</div>');
         }
       ?>
@@ -30,7 +30,7 @@
       <?php
         if (!empty($messages) && !empty($messages['tel'])) {
           print('<div id="tel_mess">');
-            print($message['tel']);
+            print($messages['tel']);
           print('</div>');
         }
       ?>
@@ -40,7 +40,7 @@
       <?php
         if (!empty($messages) && !empty($messages['date_birth'])) {
           print('<div id="date_birth_mess">');
-            print($message['date_birth']);
+            print($messages['date_birth']);
           print('</div>');
         }
       ?>
@@ -50,7 +50,7 @@
       <?php
         if (!empty($messages) && !empty($messages['email'])) {
           print('<div id="email_mess">');
-            print($message['email']);
+            print($messages['email']);
           print('</div>');
         }
       ?>
@@ -64,7 +64,7 @@
       <?php
         if (!empty($messages) && !empty($messages['pol'])) {
           print('<div id="pol_mess">');
-            print($message['pol']);
+            print($messages['pol']);
           print('</div>');
         }
       ?>
@@ -74,7 +74,7 @@
       <?php
         if (!empty($messages) && !empty($messages['biography'])) {
           print('<div id="biography_mess">');
-            print($message['biography']);
+            print($messages['biography']);
           print('</div>');
         }
       ?>
@@ -98,7 +98,7 @@
       <?php
         if (!empty($messages) && !empty($messages['lan'])) {
           print('<div id="lan_mess">');
-            print($message['lan']);
+            print($messages['lan']);
           print('</div>');
         }
       ?>
