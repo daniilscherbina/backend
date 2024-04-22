@@ -39,4 +39,5 @@ input[type="submit"]:hover {
 
 .error {
   border: 2px solid red;
+  margin-bottom: 10px;
 }
