@@ -36,6 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   error_cookie_cl('pol', 'Укажите корректный пол', $errors, $messages);
   error_cookie_cl('biography', 'В данном поле допустимо использование следующих символов: буквы кириллицы и латиницы, цифры, точка, запятая, восклицательный и вопросительный знак', $errors, $messages);
   error_cookie_cl('lan', 'Выберете языки из списка выше', $errors, $messages);
+  error_cookie_cl('no', 'Для обработки запроса вы должны быть согласны с обработкой данных', $errors, $messages);
 
   // Складываем предыдущие значения полей в массив, если есть.
   $values = array();
@@ -56,6 +57,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 // Проверяем ошибки.
 $errors = FALSE;
 require_once "validator.php";
+if(!(isset($_POST['checkbox']) && $_POST['checkbox'] == 'yes')) {
+  setcookie('no_error', '1', time() + 24 * 60 * 60);
+  $errors = TRUE;
+}
+
 if (!is_valid_fio($_POST['fio'])) {
   setcookie('fio_error', '1', time() + 24 * 60 * 60);
   $errors = TRUE;
