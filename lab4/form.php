@@ -104,6 +104,13 @@
       ?>
       <input type="checkbox" id="checkbox" name="checkbox" value="yes">
       <label for="checkbox" class="ch">Я согласен с обработкой данных</label>
+      <?php
+        if (!empty($messages) && !empty($messages['no'])) {
+          print('<div id="no_mess">');
+            print($messages['no']);
+          print('</div>');
+        }
+      ?>
       <input type="submit" value="Отправить">
 
     </form>
