@@ -20,7 +20,7 @@ function language_exists($ids) {
     return $count > 0;
 }
 
-function new_answer($fio, $tel, $date_birth, $email, $pol, $biography, $ids) {
+function new_answer($fio, $tel, $date_birth, $email, $pol, $biography, $ids, $pass) {
   $db = create_db_connection();
   $db->beginTransaction();
   $stmt = $db->prepare("INSERT INTO answer (fio, tel, date_birth, email, pol, biography) VALUES (:fio, :tel, :date_birth, :email, :pol, :biography)");
@@ -39,6 +39,8 @@ function new_answer($fio, $tel, $date_birth, $email, $pol, $biography, $ids) {
   // Получение идентификатора добавленной записи
   $lastId = $db->lastInsertId();
 
+  $stmt = $db->prepare("INSERT INTO users_table (id, pass) VALUES (:lastId, :pass");
+
   $stmt2 = $db->prepare("INSERT INTO answer_language (answer_id, language_id) VALUES (:answer_id, :language_id)");
   // Привязка параметров и добавление записей в цикле
   foreach ($ids as $language_id) {
@@ -47,5 +49,6 @@ function new_answer($fio, $tel, $date_birth, $email, $pol, $biography, $ids) {
     $stmt2->execute();
   }
   $db->commit();
+return $lastId;
 }
 ?>
