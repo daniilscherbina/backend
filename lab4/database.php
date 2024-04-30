@@ -21,11 +21,8 @@ function language_exists($ids) {
 }
 
 function new_answer($fio, $tel, $date_birth, $email, $pol, $biography, $ids) {
-print ("hi");
   $db = create_db_connection();
-print ("hi");
   $db->beginTransaction();
-print ("hi");
   $stmt = $db->prepare("INSERT INTO answer (fio, tel, date_birth, email, pol, biography) VALUES (:fio, :tel, :date_birth, :email, :pol, :biography)");
 
   // Привязка параметров
@@ -35,10 +32,8 @@ print ("hi");
   $stmt->bindParam(':email', $email);
   $stmt->bindParam(':pol', $pol);
   $stmt->bindParam(':biography', $biography);
-print ("hi");
   // Выполнение запроса
   $stmt->execute();
-print ("hi");
   // Получение идентификатора добавленной записи
   $lastId = $db->lastInsertId();
 
