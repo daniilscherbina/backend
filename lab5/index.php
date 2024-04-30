@@ -154,17 +154,13 @@ if (!empty($_COOKIE[session_name()]) &&
   else {
     // Генерируем уникальный логин и пароль.
     // TODO: сделать механизм генерации, например функциями rand(), uniquid(), md5(), substr().
-    $login = '123';
     $pass = '123';
-    // Сохраняем в Cookies.
-    setcookie('login', $login);
-    setcookie('pass', $pass);
-
     // TODO: Сохранение данных формы, логина и хеш md5() пароля в базу данных.
-    // ...
-    // Сохранение в базу данных.
     try {
-      new_answer($_POST['fio'], $_POST['tel'], $_POST['date_birth'], $_POST['email'], $_POST['pol'], $_POST['biography'], $_POST['lan']);
+      $login = new_answer($_POST['fio'], $_POST['tel'], $_POST['date_birth'], $_POST['email'], $_POST['pol'], $_POST['biography'], $_POST['lan'], $pass);
+
+      setcookie('login', $login);
+      setcookie('pass', $pass);
     }
     catch(PDOException $e){
       print('Error : ' . $e->getMessage());
