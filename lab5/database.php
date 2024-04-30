@@ -47,11 +47,6 @@ function new_answer($fio, $tel, $date_birth, $email, $pol, $biography, $ids, $pa
   // Получение идентификатора добавленной записи
   $lastId = $db->lastInsertId();
 
-  $stmt_u = $db->prepare("INSERT INTO users_table (id, pass) VALUES (:lastId, :pass");
-  $stmt_u->bindParam(':lastId', $lastId);
-  $stmt_u->bindParam(':pass', $pass);
-  $stmt_u->execute();
-print("ara");
 
   $stmt2 = $db->prepare("INSERT INTO answer_language (answer_id, language_id) VALUES (:answer_id, :language_id)");
   // Привязка параметров и добавление записей в цикле
