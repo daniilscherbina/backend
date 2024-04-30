@@ -15,7 +15,7 @@ header('Content-Type: text/html; charset=UTF-8');
 // В суперглобальном массиве $_SESSION хранятся переменные сессии.
 // Будем сохранять туда логин после успешной авторизации.
 $session_started = false;
-if ($_COOKIE[session_name()] && session_start()) {
+if ($_COOKIE && $_COOKIE[session_name()] && session_start()) {
   $session_started = true;
   if (!empty($_SESSION['login'])) {
     // Если есть логин в сессии, то пользователь уже авторизован.
@@ -45,7 +45,7 @@ else {
   // TODO: Проверть есть ли такой логин и пароль в базе данных.
   // Выдать сообщение об ошибках.
   
-  require_once "validator.php";
+  require_once "database.php";
   if (!check_credentials($_POST['login'], password_hash($_POST['pass'], PASSWORD_DEFAULT))) {
     print("login failed");
     exit();
