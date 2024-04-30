@@ -46,8 +46,9 @@ else {
   // Выдать сообщение об ошибках.
   
   require_once "database.php";
-  if (!check_credentials($_POST['login'], password_hash($_POST['pass'], PASSWORD_DEFAULT))) {
-    print("login failed");
+  $hash = password_hash($_POST['pass'], PASSWORD_DEFAULT);
+  if (!check_credentials($_POST['login'], $hash)) {
+    print("login failed " . $hash);
     exit();
   }
 
