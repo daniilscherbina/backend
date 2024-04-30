@@ -48,7 +48,6 @@ else {
   require_once "database.php";
   $hash = md5($_POST['pass']);
   if (!check_credentials($_POST['login'], $hash)) {
-    print("login failed " . $hash);
     exit();
   }
 
