@@ -28,6 +28,28 @@ function check_credentials($login, $password) {
     return $count > 0;
 }
 
+function update_answer($fio, $tel, $date_birth, $email, $pol, $biography, $ids, $login) {
+  $db = create_db_connection();
+  $db->beginTransaction();
+  $stmt = $db->prepare("UPDATE answer SET fio = :fio, tel = :tel, date_birth = :date_birth, email = :email, pol = :pol, biography = :biography WHERE id = :login");
+    
+  // Привязка параметров
+  $stmt->bindParam(':fio', $fio);
+  $stmt->bindParam(':tel', $tel);
+  $stmt->bindParam(':date_birth', $date_birth);
+  $stmt->bindParam(':email', $email);
+  $stmt->bindParam(':pol', $pol);
+  $stmt->bindParam(':biography', $biography);
+  $stmt->bindParam(':biography', $login);
+  // Выполнение запроса
+  $stmt->execute();
+    
+  $db->commit();
+return $lastId;
+}
+?>
+
+
 function new_answer($fio, $tel, $date_birth, $email, $pol, $biography, $ids, $password) {
   $db = create_db_connection();
   $db->beginTransaction();
@@ -44,12 +66,11 @@ function new_answer($fio, $tel, $date_birth, $email, $pol, $biography, $ids, $pa
   $stmt->execute();
   // Получение идентификатора добавленной записи
   $lastId = $db->lastInsertId();
-print ($password);
   $stmt_u = $db->prepare("INSERT INTO users_table (id, pass) VALUES (:lastId, :pass)");
   $stmt_u->bindParam(':lastId', $lastId);
   $stmt_u->bindParam(':pass', $password);
   $stmt_u->execute();
-print ("hi");
+    
   $stmt2 = $db->prepare("INSERT INTO answer_language (answer_id, language_id) VALUES (:answer_id, :language_id)");
   // Привязка параметров и добавление записей в цикле
   foreach ($ids as $language_id) {
