@@ -20,6 +20,14 @@ function language_exists($ids) {
     return $count > 0;
 }
 
+function check_credentials($login, $password) {
+    $db = create_db_connection();
+    $query = $db->prepare("SELECT COUNT(*) FROM users_table WHERE login = ? AND password = ?");
+    $query->execute([$login, $password]);
+    $count = $query->fetchColumn();
+    return $count > 0;
+}
+
 function new_answer($fio, $tel, $date_birth, $email, $pol, $biography, $ids, $pass) {
   $db = create_db_connection();
   $db->beginTransaction();
