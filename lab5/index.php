@@ -15,8 +15,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   if (!empty($_COOKIE['save'])) {
     // Удаляем куку, указывая время устаревания в прошлом.
     setcookie('save', '', 100000);
+    setcookie('login', '', 100000);
+    setcookie('pass', '', 100000);
     // Если есть параметр save, то выводим сообщение пользователю.
     $messages['yes'] = 'Спасибо, результаты сохранены.';
+    if (!empty($_COOKIE['pass'])) {
+      $messages['logpas'] = sprintf('Вы можете <a href="login.php">войти</a> с логином <strong>%s</strong>
+        и паролем <strong>%s</strong> для изменения данных.',
+        strip_tags($_COOKIE['login']),
+        strip_tags($_COOKIE['pass']));
+    }
   }
 
   // Складываем признак ошибок в массив.
@@ -49,6 +57,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   values_set('pol', $values);
   values_set('biography', $values);
   values_set('lan', $values);
+
+  if (empty($errors) && !empty($_COOKIE[session_name()]) &&
+      session_start() && !empty($_SESSION['login'])) {
+    // TODO: загрузить данные пользователя из БД
+    // и заполнить переменную $values,
+    // предварительно санитизовав.
+    printf('Вход с логином %s, uid %d', $_SESSION['login'], $_SESSION['uid']);
+  }
   //
   include('form.php');
   // Завершаем работу скрипта.
@@ -129,14 +145,32 @@ else {
   // TODO: тут необходимо удалить остальные Cookies.
 }
 
-// Сохранение в базу данных.
-try {
-  new_answer($_POST['fio'], $_POST['tel'], $_POST['date_birth'], $_POST['email'], $_POST['pol'], $_POST['biography'], $_POST['lan']);
-}
-catch(PDOException $e){
-  print('Error : ' . $e->getMessage());
-  exit();
-}
+
+if (!empty($_COOKIE[session_name()]) &&
+      session_start() && !empty($_SESSION['login'])) {
+    // TODO: перезаписать данные в БД новыми данными,
+    // кроме логина и пароля.
+  }
+  else {
+    // Генерируем уникальный логин и пароль.
+    // TODO: сделать механизм генерации, например функциями rand(), uniquid(), md5(), substr().
+    $login = '123';
+    $pass = '123';
+    // Сохраняем в Cookies.
+    setcookie('login', $login);
+    setcookie('pass', $pass);
+
+    // TODO: Сохранение данных формы, логина и хеш md5() пароля в базу данных.
+    // ...
+    // Сохранение в базу данных.
+    try {
+      new_answer($_POST['fio'], $_POST['tel'], $_POST['date_birth'], $_POST['email'], $_POST['pol'], $_POST['biography'], $_POST['lan']);
+    }
+    catch(PDOException $e){
+      print('Error : ' . $e->getMessage());
+      exit();
+    }
+  }
 
 setcookie('save', '1');
 header('Location: index.php');
