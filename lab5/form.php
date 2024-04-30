@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Лабораторная работа 4</title>
+    <title>Лабораторная работа 5</title>
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
@@ -12,6 +12,14 @@
         if (!empty($messages) && !empty($messages['yes'])) {
           print('<div id="yes_mess">');
             print($messages['yes']);
+          print('</div>');
+        }
+      ?>
+      
+      <?php
+        if (!empty($messages) && !empty($messages['logpas'])) {
+          print('<div id="logpas_mess">');
+            print($messages['logpas']);
           print('</div>');
         }
       ?>
