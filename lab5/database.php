@@ -45,9 +45,7 @@ function update_answer($fio, $tel, $date_birth, $email, $pol, $biography, $ids, 
   $stmt->execute();
     
   $db->commit();
-return $lastId;
 }
-?>
 
 
 function new_answer($fio, $tel, $date_birth, $email, $pol, $biography, $ids, $password) {
