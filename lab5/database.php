@@ -44,10 +44,10 @@ function new_answer($fio, $tel, $date_birth, $email, $pol, $biography, $ids, $pa
   $stmt->execute();
   // Получение идентификатора добавленной записи
   $lastId = $db->lastInsertId();
-    print ("hi");
+
   $stmt_u = $db->prepare("INSERT INTO users_table (id, pass) VALUES (:lastId, :pass");
   $stmt_u->bindParam(':lastId', $lastId);
-  $stmt_u->bindParam(':pass', $password);
+  $stmt_u->bindParam(':pass', $password, PDO::PARAM_STR);
   $stmt_u->execute();
 print ("hi");
   $stmt2 = $db->prepare("INSERT INTO answer_language (answer_id, language_id) VALUES (:answer_id, :language_id)");
