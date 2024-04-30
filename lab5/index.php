@@ -154,10 +154,11 @@ if (!empty($_COOKIE[session_name()]) &&
   else {
     // Генерируем уникальный логин и пароль.
     // TODO: сделать механизм генерации, например функциями rand(), uniquid(), md5(), substr().
-    $pass = '123';
+    $pass = rand(1, 1000000);
+    $hashed_password = password_hash($pass, PASSWORD_DEFAULT);
     // TODO: Сохранение данных формы, логина и хеш md5() пароля в базу данных.
     try {
-      $login = new_answer($_POST['fio'], $_POST['tel'], $_POST['date_birth'], $_POST['email'], $_POST['pol'], $_POST['biography'], $_POST['lan'], $pass);
+      $login = new_answer($_POST['fio'], $_POST['tel'], $_POST['date_birth'], $_POST['email'], $_POST['pol'], $_POST['biography'], $_POST['lan'], $hashed_password);
 
       setcookie('login', $login);
       setcookie('pass', $pass);
