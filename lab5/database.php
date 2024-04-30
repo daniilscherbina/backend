@@ -22,7 +22,7 @@ function language_exists($ids) {
 
 function check_credentials($login, $password) {
     $db = create_db_connection();
-    $query = $db->prepare("SELECT COUNT(*) FROM users_table WHERE login = ? AND password = ?");
+    $query = $db->prepare("SELECT COUNT(*) FROM users_table WHERE id = ? AND pass = ?");
     $query->execute([$login, $password]);
     $count = $query->fetchColumn();
     return $count > 0;
