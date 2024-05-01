@@ -31,7 +31,7 @@ function check_credentials($login, $password) {
 function update_answer($fio, $tel, $date_birth, $email, $pol, $biography, $ids, $login) {
   $db = create_db_connection();
   $db->beginTransaction();
-  $stmt = $db->prepare("UPDATE answer SET fio = :fio, tel = :tel, date_birth = :date_birth, email = :email, pol = :pol, biography = :biography WHERE id = :login");
+  $stmt = $db->prepare("UPDATE answer SET fio = :fio, tel = :tel, date_birth = :date_birth, email = :email, pol = :pol, biography = :biography WHERE id_answer = :login");
     
   // Привязка параметров
   $stmt->bindParam(':fio', $fio);
