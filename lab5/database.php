@@ -40,7 +40,7 @@ function update_answer($fio, $tel, $date_birth, $email, $pol, $biography, $ids, 
   $stmt->bindParam(':email', $email);
   $stmt->bindParam(':pol', $pol);
   $stmt->bindParam(':biography', $biography);
-  $stmt->bindParam(':id', $login);
+  $stmt->bindParam(':login', $login);
   // Выполнение запроса
   $stmt->execute();
 
