@@ -150,7 +150,7 @@ if (!empty($_COOKIE[session_name()]) &&
       session_start() && !empty($_SESSION['login'])) {
     // TODO: перезаписать данные в БД новыми данными,
     // кроме логина и пароля.
-    update_answer($_POST['fio'], $_POST['tel'], $_POST['date_birth'], $_POST['email'], $_POST['pol'], $_POST['biography'], $_POST['lan'], $_SESSION['login']);
+    update_answer($_POST['fio'], $_POST['tel'], $_POST['date_birth'], $_POST['email'], $_POST['pol'], $_POST['biography'], $_POST['lan'], $_SESSION['uid']);
   }
   else {
     // Генерируем уникальный логин и пароль.
