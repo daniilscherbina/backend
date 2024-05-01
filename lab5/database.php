@@ -43,7 +43,19 @@ function update_answer($fio, $tel, $date_birth, $email, $pol, $biography, $ids, 
   $stmt->bindParam(':biography', $login);
   // Выполнение запроса
   $stmt->execute();
-    
+
+  $stmt3 = $db->prepare("DELETE FROM answer_language WHERE answer_id = :answer_id");
+  $stmt3->bindParam(':answer_id', $login);
+  $stmt3->execute();
+
+  $stmt2 = $db->prepare("INSERT INTO answer_language (answer_id, language_id) VALUES (:answer_id, :language_id)");
+  // Привязка параметров и добавление записей в цикле
+  foreach ($ids as $language_id) {
+    $stmt2->bindParam(':answer_id', $lastId);
+    $stmt2->bindParam(':language_id', $language_id);
+    $stmt2->execute();
+  }
+  
   $db->commit();
 }
 
