@@ -51,7 +51,7 @@ function update_answer($fio, $tel, $date_birth, $email, $pol, $biography, $ids, 
   $stmt2 = $db->prepare("INSERT INTO answer_language (answer_id, language_id) VALUES (:answer_id, :language_id)");
   // Привязка параметров и добавление записей в цикле
   foreach ($ids as $language_id) {
-    $stmt2->bindParam(':answer_id', $lastId);
+    $stmt2->bindParam(':answer_id', $login);
     $stmt2->bindParam(':language_id', $language_id);
     $stmt2->execute();
   }
