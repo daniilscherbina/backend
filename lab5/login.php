@@ -31,12 +31,22 @@ if (!empty($_COOKIE) && $_COOKIE[session_name()] && session_start()) {
 // и другие сведения о клиненте и сервере, например метод текущего запроса $_SERVER['REQUEST_METHOD'].
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 ?>
-
-<form action="" method="post">
-  <input name="login" />
-  <input name="pass" />
-  <input type="submit" value="Войти" />
-</form>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Логин</title>
+    <link rel="stylesheet" href="login.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <form action="" method="post">
+      <input name="login" />
+      <input name="pass" />
+      <input type="submit" value="Войти" />
+    </form>
+  </body>
+</html>
 
 <?php
 }
