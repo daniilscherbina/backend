@@ -1,7 +1,20 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f2f2f2; /* Замените на ваш выбранный цвет фона */
+}
+
 form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 20px;
+  background-color: #ffffff; /* Замените на ваш выбранный цвет фона */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 input {
