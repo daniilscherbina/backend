@@ -66,6 +66,13 @@
             border: none;
             border-radius: 10px;
         }
+        .del-button {
+            background-color: red;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+        }
         .search-bar {
             background-color: #1d283c;
             color: white;
@@ -115,124 +122,27 @@
         <div class="bottom-subblock">
             <table>
                 <tr>
-                    <th>Колонка 1</th>
-                    <th>Колонка 2</th>
-                    <th>Колонка 3</th>
-                    <th>Колонка 4</th>
-                    <th>Колонка 5</th>
+                    <th>Ф.И.О</th>
+                    <th>Email</th>
+                    <th>Телефон</th>
+                    <th>Пол</th>
+                    <th>Дата рождения</th>
                 </tr>
-                <tr>
-                    <td>Данные 1</td>
-                    <td>Данные 2</td>
-                    <td>Данные 3</td>
-                    <td>Данные 4</td>
-                    <td>Данные 5</td>
-                </tr>
-                <tr>
-                    <td>Данные 1</td>
-                    <td>Данные 2</td>
-                    <td>Данные 3</td>
-                    <td>Данные 4</td>
-                    <td>Данные 5</td>
-                </tr>
-                <tr>
-                    <td>Данные 1</td>
-                    <td>Данные 2</td>
-                    <td>Данные 3</td>
-                    <td>Данные 4</td>
-                    <td>Данные 5</td>
-                </tr>
-                <tr>
-                    <td>Данные 1</td>
-                    <td>Данные 2</td>
-                    <td>Данные 3</td>
-                    <td>Данные 4</td>
-                    <td>Данные 5</td>
-                </tr>
-                <tr>
-                    <td>Данные 1</td>
-                    <td>Данные 2</td>
-                    <td>Данные 3</td>
-                    <td>Данные 4</td>
-                    <td>Данные 5</td>
-                </tr>
-                <tr>
-                    <td>Данные 1</td>
-                    <td>Данные 2</td>
-                    <td>Данные 3</td>
-                    <td>Данные 4</td>
-                    <td>Данные 5</td>
-                </tr>
-                <tr>
-                    <td>Данные 1</td>
-                    <td>Данные 2</td>
-                    <td>Данные 3</td>
-                    <td>Данные 4</td>
-                    <td>Данные 5</td>
-                </tr>
-                <tr>
-                    <td>Данные 1</td>
-                    <td>Данные 2</td>
-                    <td>Данные 3</td>
-                    <td>Данные 4</td>
-                    <td>Данные 5</td>
-                </tr>
-                <tr>
-                    <td>Данные 1</td>
-                    <td>Данные 2</td>
-                    <td>Данные 3</td>
-                    <td>Данные 4</td>
-                    <td>Данные 5</td>
-                </tr>
-                <tr>
-                    <td>Данные 1</td>
-                    <td>Данные 2</td>
-                    <td>Данные 3</td>
-                    <td>Данные 4</td>
-                    <td>Данные 5</td>
-                </tr>
-                <tr>
-                    <td>Данные 1</td>
-                    <td>Данные 2</td>
-                    <td>Данные 3</td>
-                    <td>Данные 4</td>
-                    <td>Данные 5</td>
-                </tr>
-                <tr>
-                    <td>Данные 1</td>
-                    <td>Данные 2</td>
-                    <td>Данные 3</td>
-                    <td>Данные 4</td>
-                    <td>Данные 5</td>
-                </tr>
-                <tr>
-                    <td>Данные 1</td>
-                    <td>Данные 2</td>
-                    <td>Данные 3</td>
-                    <td>Данные 4</td>
-                    <td>Данные 5</td>
-                </tr>
-                <tr>
-                    <td>Данные 1</td>
-                    <td>Данные 2</td>
-                    <td>Данные 3</td>
-                    <td>Данные 4</td>
-                    <td>Данные 5</td>
-                </tr>
-                <tr>
-                    <td>Данные 1</td>
-                    <td>Данные 2</td>
-                    <td>Данные 3</td>
-                    <td>Данные 4</td>
-                    <td>Данные 5</td>
-                </tr>
-                <tr>
-                    <td>Данные 1</td>
-                    <td>Данные 2</td>
-                    <td>Данные 3</td>
-                    <td>Данные 4</td>
-                    <td>Данные 5</td>
-                </tr>
+                <?php
+                    require_once "database.php";
+                    $rows = get_all_user_info();
+                    foreach ($rows as $row) {
+                        print('<tr>');
+                            print('<td>' . $row['fio'] . '</td>');
+                            print('<td>' . $row['email'] . '</td>');
+                            print('<td>' . $row['tel'] . '</td>');
+                            print('<td>' . $row['pol'] . '</td>');
+                            print('<td>' . $row['date_birth'] . '</td>');
+                            print('<td><button class="add-button">Подробнее</button></td>');
+                            print('<td><button class="del-button">Удалить</button></td>');
+                        print('</tr>');
+                    }
+                ?>
             </table>
         </div>
     </div>
