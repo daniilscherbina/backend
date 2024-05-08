@@ -123,7 +123,7 @@
                     require_once "database.php";
                     $lan = get_languages();
                     while ($row = $lan->fetch()) {
-                        printf('%s: %i человек', $row['name'], 1);
+                        printf('%s: %d человек', $row['name'], 1);
                     }
                 ?>
             </div>
