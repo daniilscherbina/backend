@@ -106,7 +106,7 @@
                     require_once "database.php";
                     $lan = get_languages();
                     while ($row = $lan->fetch()) {
-                        printf('%s: %d человек<br>', $row['name'], 1);
+                        printf('%s: %d человек<br>', $row['name'], get_lan_answer_count($row['id_lan']));
                     }
                 ?>
             </div>
