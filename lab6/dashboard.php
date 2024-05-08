@@ -17,7 +17,7 @@
             flex-direction: column;
         }
         .top-subblock {
-            height: 80px;
+            height: 200px;
             display: flex;
             padding: 25px;
             justify-content: space-between;
