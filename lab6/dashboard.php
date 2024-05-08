@@ -118,6 +118,14 @@
             <div class="top-subblock-header">
                 Данные опроса
             </div>
+            <div class="top-subblock-content">
+                <?php
+                    $lan = get_languages();
+                    while ($row = $lan->fetch()) {
+                        printf('%s: %i человек', $row['name'], 1);
+                    }
+                ?>
+            </div>
         </div>
         <div class="bottom-subblock">
             <table>
