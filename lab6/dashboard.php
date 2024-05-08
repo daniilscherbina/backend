@@ -120,6 +120,7 @@
             </div>
             <div class="top-subblock-content">
                 <?php
+                    require_once "database.php";
                     $lan = get_languages();
                     while ($row = $lan->fetch()) {
                         printf('%s: %i человек', $row['name'], 1);
