@@ -18,7 +18,7 @@ function get_all_user_info() {
     $rows = array();
     while ($row = $query->fetch()) {
         $rows[] = $row;
-print($row);
+print_r($row);
     }
     return $rows;
 }
