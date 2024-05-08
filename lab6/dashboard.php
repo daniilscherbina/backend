@@ -132,6 +132,7 @@
                     require_once "database.php";
                     $rows = get_all_user_info();
                     foreach ($rows as $row) {
+                        print($row);
                         print('<tr>');
                             print('<td>' . $row['fio'] . '</td>');
                             print('<td>' . $row['email'] . '</td>');
