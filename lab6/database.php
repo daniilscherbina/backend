@@ -11,6 +11,17 @@ function get_languages() {
   return $db->query("SELECT * FROM language");
 }
 
+function get_all_user_info() {
+    $db = create_db_connection();
+    $query = $db->prepare("SELECT * FROM users_table");
+    $query->execute();
+    $rows = array();
+    while ($row = $query->fetch()) {
+        $rows[] = $row;
+    }
+    return $rows;
+}
+
 function language_exists($ids) {
     $db = create_db_connection();
     $placeholders = rtrim(str_repeat('?, ', count($ids)), ', '); // Генерация плейсхолдеров для запроса
