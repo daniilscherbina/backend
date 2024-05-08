@@ -6,9 +6,15 @@ function create_db_connection() {
     return new PDO('mysql:host=localhost;dbname=' . $user, $user, $pass,
                     [PDO::ATTR_PERSISTENT => true, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
 }
+
 function get_languages() {
   $db = create_db_connection();
   return $db->query("SELECT * FROM language");
+}
+
+function get_lan_answer_count($id) {
+  $db = create_db_connection();
+  return $db->query("SELECT COUNT(*) as total FROM answer_language WHERE id_lan=" . $id)['total'];
 }
 
 function get_all_user_info() {
