@@ -13,7 +13,7 @@ function get_languages() {
 
 function get_all_user_info() {
     $db = create_db_connection();
-    $query = $db->prepare("SELECT * FROM users_table");
+    $query = $db->prepare("SELECT * FROM answer");
     $query->execute();
     $rows = array();
     while ($row = $query->fetch()) {
