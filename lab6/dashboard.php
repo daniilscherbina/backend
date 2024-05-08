@@ -81,7 +81,9 @@
             width: 250px;
             border-radius: 10px;
         }
-
+        .stat {
+            color: white;
+        }
         table {
             width: 100%;
             border-collapse: collapse;
@@ -118,12 +120,12 @@
             <div class="top-subblock-header">
                 Данные опроса
             </div>
-            <div class="top-subblock-content">
+            <div class="stat">
                 <?php
                     require_once "database.php";
                     $lan = get_languages();
                     while ($row = $lan->fetch()) {
-                        printf('%s: %d человек', $row['name'], 1);
+                        printf('%s: %d человек<br>', $row['name'], 1);
                     }
                 ?>
             </div>
