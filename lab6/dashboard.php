@@ -10,34 +10,14 @@
             margin: 0;
             padding: 0;
         }
-        .left-block {
-            padding-top: 75px;
-            display: flex;
-            flex-direction: column;
-            width: 250px;
-            background-color: #161d2f;
-            color: white;
-            a {
-                color: white;
-                padding: 15px;
-                padding-left: 25px;
-                font-size: 20px;
-                text-decoration: none;
-                transition: all 0.3s ease;
-            }
-
-            a:hover {
-                background-color: #1d283c;
-                border-right: 5px solid #2869ff;
-            }
-        }
+        
         .right-block {
             flex-grow: 1;
             display: flex;
             flex-direction: column;
         }
         .top-subblock {
-            min-height: 80px;
+            height: 80px;
             display: flex;
             padding: 25px;
             justify-content: space-between;
@@ -83,6 +63,7 @@
         }
         .stat {
             color: white;
+            overflow: auto;
         }
         table {
             width: 100%;
