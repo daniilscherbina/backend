@@ -37,7 +37,7 @@
             flex-direction: column;
         }
         .top-subblock {
-            height: 80px;
+            min-height: 80px;
             display: flex;
             padding: 25px;
             justify-content: space-between;
