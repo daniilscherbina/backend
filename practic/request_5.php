@@ -46,10 +46,10 @@
                           print('</td>');
                       }
                     print('</tr>');
-                  } else {
+                  } 
+                } else {
                       print('is null');
                   }
-                }
             }
         ?>
     </table>
