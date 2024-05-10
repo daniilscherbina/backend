@@ -20,7 +20,7 @@ function get_table_colown_names($table_name) {
 
 function get_all_rows_table($table_name) {
   $db = create_db_connection();
-    $query = $db->prepare("SELECT * FROM" . $table_name);
+    $query = $db->prepare("SELECT * FROM " . $table_name);
     $query->execute();
     $rows = array();
     while ($row = $query->fetch()) {
