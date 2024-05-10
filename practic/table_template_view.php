@@ -18,16 +18,7 @@
         </tr>
         <?php
             require_once "database.php";
-            $rows = get_all_rows_table($table_name);
-            foreach ($rows as $row) {
-                print('<tr>');
-                    foreach ($row as $col) {
-                        print('<td>');
-                            print(col);
-                        print('</td>');
-                    }
-                print('</tr>');
-            }
+            
         ?>
     </table>
 </div>
