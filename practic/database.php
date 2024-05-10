@@ -30,7 +30,13 @@ $requests = array(
     $query = $db->prepare("SELECT last_name as 'Фамилия', first_name as 'Имя', patronymic as 'Отчество', discount as 'Персональная скидка %' FROM clients WHERE discount = 0.5;");
     $query->execute();
     return $query;
-  }
+  },
+  '8' => function() {
+    $db = create_db_connection();
+    $query = $db->prepare("SELECT date AS 'Дата подписания договора', MIN(amount_of_insurance) AS 'Минимальная сумма страхования', MAX(amount_of_insurance) AS 'Максимальная сумма страхования' FROM contracts GROUP BY date;");
+    $query->execute();
+    return $query;
+  },
 );
 
 ?>
