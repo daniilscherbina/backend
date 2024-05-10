@@ -14,10 +14,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         $post['request4'] = $_COOKIE['request4'];
     }
     if (isset($_COOKIE['request5_start'])) {
-        $post['request4'] = $_COOKIE['request5_start'];
+        $post['request5_start'] = $_COOKIE['request5_start'];
     }
     if (isset($_COOKIE['request5_end'])) {
-        $post['request4'] = $_COOKIE['request5_end'];
+        $post['request5_end'] = $_COOKIE['request5_end'];
     }
     setcookie('request4', '', 100000);
     setcookie('request5_start', '', 100000);
