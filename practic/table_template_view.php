@@ -18,7 +18,7 @@
         </tr>
         <?php
             require_once "database.php";
-            $rows = get_all_rows_table($table_name);
+            $db = create_db_connection();
         ?>
     </table>
 </div>
