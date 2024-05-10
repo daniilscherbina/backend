@@ -17,6 +17,9 @@
     <table>
         <?php
             require_once "database.php";
+            if (isset($_COOKIE['request4'])) {
+                print($_COOKIE['request4']);
+            }
         ?>
     </table>
 </div>
