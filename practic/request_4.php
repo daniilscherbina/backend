@@ -1,6 +1,6 @@
 <div class="top-subblock">
     <div class="top-subblock-header">
-        <?php print('Запрос под номером: 4'); ?>
+        Запрос под номером: 4
     </div>
     <div class="top-subblock-content">
         <form action="" method="POST">
