@@ -43,6 +43,12 @@ $requests = array(
     $query->execute();
     return $query;
   },
+  '4' => function() {
+    $db = create_db_connection();
+    $query = $db->prepare("SELECT ia.id AS 'Код агента', CONCAT(ia.first_name, ' ', ia.last_name, ' ', ia.patronymic) AS 'Ф.И.О. агента',  c.id AS 'Код контракта', c.date AS 'Дата подписания контракта', CONCAT(cl.first_name, ' ', cl.last_name, ' ', cl.patronymic) AS 'Ф.И.О. клиента', c.amount_of_insurance AS 'Сумма страхования', it.name AS 'Тип страхования' FROM insurance_agents ia JOIN contracts c ON ia.id = c.id_insurance_agent JOIN insurance_type it ON it.id = c.id_insurance_type JOIN clients cl ON cl.id = c.id_clients WHERE c.amount_of_insurance >= 200000;");
+    $query->execute();
+    return $query;
+  },
 );
 
 ?>
