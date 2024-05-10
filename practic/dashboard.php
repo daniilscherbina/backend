@@ -39,10 +39,10 @@
             display: flex;
             flex-direction: column;
             color: white;
+            justify-content: space-between;
             a {
                 color: white;
                 margin: 25px;
-                justify-content: space-between;
                 font-size: 18px;
                 text-decoration: none;
             }
