@@ -17,9 +17,7 @@
     <table>
         <?php
             require_once "database.php";
-            if (isset($post['request4'])) {
-                print($post['request4']);
-            }
+            print($post['request4']);
         ?>
     </table>
 </div>
