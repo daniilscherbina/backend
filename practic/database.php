@@ -24,4 +24,12 @@ function get_all_rows_table($table_name) {
     return $rows;
 }
 
+$requests = array(
+    '9' => function($request_num) {
+        $query = $db->prepare("SELECT * FROM clients WHERE discount = 0.5;");
+        $query->execute();
+        return $query;
+    }
+);
+
 ?>
