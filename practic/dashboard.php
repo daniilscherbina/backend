@@ -113,7 +113,7 @@
         <a href="?table=insurance_agents">Страховые агенты</a><br>
         <a href="?table=contracts">Договоры</a><br>
         <a href="?table=insurance_type">Типы страхования</a><br>
-        <a href="#">Запросы</a><br>
+        <a href="?all_request">Запросы</a><br>
     </div>
     <div class="right-block">
         <?php
