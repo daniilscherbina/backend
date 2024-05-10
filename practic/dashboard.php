@@ -43,7 +43,8 @@
                 color: white;
                 padding: 15px;
                 padding-left: 25px;
-                font-size: 16px;
+                margin-bottom: 25px;
+                font-size: 18px;
                 text-decoration: none;
             }
         }
