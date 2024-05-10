@@ -10,9 +10,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
       exit();
     }
     include('dashboard.php');
-    setcookie('request4', '', 100000);
-    setcookie('request5_start', '', 100000);
-    setcookie('request5_end', '', 100000);
 } else {
     if (isset($_POST['request'])) {
         if ($_POST['request'] == 4) {
