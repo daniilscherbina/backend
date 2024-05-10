@@ -4,7 +4,7 @@
     </div>
 </div>
 <div class="bottom-subblock">
-    <div>
+    <div class="discription">
         <?php print($requests_discription[$request_num]); ?>
     </div>
     <table>
