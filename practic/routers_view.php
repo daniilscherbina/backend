@@ -27,7 +27,7 @@
       }
     },
     'all_request' => function ($par) {
-      print('тут что-то должно быть');
+      include('all_request.php');
     }
   );
 
