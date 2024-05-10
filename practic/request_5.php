@@ -5,8 +5,8 @@
     <div class="top-subblock-content">
         <form action="" method="POST">
             <input class="search-bar" type="hidden" id="request" name="request" value="5">
-            <input class="search-bar" type="text" id="request5_start" name="request5_start" placeholder="Начало промежутка в формате dd.mm.yyyy">
-            <input class="search-bar" type="text" id="request5_end" name="request5_end" placeholder="Конец промежутка в формате dd.mm.yyyy">
+            <input class="search-bar" type="text" id="request5_start" name="request5_start" placeholder="Начало промежутка dd.mm.yyyy">
+            <input class="search-bar" type="text" id="request5_end" name="request5_end" placeholder="Конец промежутка dd.mm.yyyy">
             <input type="submit" class="add-button"  value="Выполнить запрос">
         </form>
     </div>
