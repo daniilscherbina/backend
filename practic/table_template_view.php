@@ -4,7 +4,6 @@
     </div>
     <div class="top-subblock-content">
         <button class="add-button">Добавить новую запись</button>
-        <input class="search-bar" type="text" placeholder="Поиск">
     </div>
 </div>
 <div class="bottom-subblock">
