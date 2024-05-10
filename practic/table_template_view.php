@@ -19,6 +19,15 @@
         <?php
             require_once "database.php";
             $db = create_db_connection();
+            foreach ($rows as $row) {
+                print('<tr>');
+                    foreach ($row as $col) {
+                        print('<td>');
+                            print(col);
+                        print('</td>');
+                    }
+                print('</tr>');
+            }
         ?>
     </table>
 </div>
