@@ -23,7 +23,7 @@
                 $result = get_result_5($post['request5_start'], $post['request5_end']);
                 if(!is_null($result)) {
                   $rows = $result->fetchAll(PDO::FETCH_ASSOC);
-      
+                  print('aa');
                   $columnCount = $result->columnCount();
                   $columnNames = array();
                   for ($i = 0; $i < $columnCount; $i++) {
