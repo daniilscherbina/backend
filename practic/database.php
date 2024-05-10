@@ -1,10 +1,8 @@
 <?php
 require_once "../secret.php";
-print($user);
 function create_db_connection() {
-    global $user;
-    print($user);
-    global $pass;
+    $user = get_db_user();
+    $pass = get_db_pass();
     return new PDO('mysql:host=localhost;dbname=' . $user, $user, $pass,
                     [PDO::ATTR_PERSISTENT => true, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
 }
