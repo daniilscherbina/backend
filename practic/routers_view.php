@@ -20,7 +20,7 @@
     },
     'request' => function ($request_num) {
       global $requests_discription;
-      if(!in_array($requests_discription[$request_num])) {
+      if(!isset($requests_discription[$request_num])) {
         print_error_content();
       } else {
         include('request_table_template.php');
