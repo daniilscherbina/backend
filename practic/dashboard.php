@@ -35,6 +35,7 @@
             flex-grow: 1;
             display: flex;
             flex-direction: column;
+            color: white;
         }
         .top-subblock {
             height: 80px;
