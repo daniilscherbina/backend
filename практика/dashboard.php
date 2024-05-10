@@ -115,7 +115,20 @@
         <a href="#">Запросы</a><br>
     </div>
     <div class="right-block">
-        
+        <?php
+            require_once 'routers_view.php';
+            if (!empty($_GET)) {
+                if (count($_GET) == 1) {
+                    if (isset($_GET['table'])) {
+                        build_mains_table_view($_GET['table']);
+                    } else {
+                        print_error_content();
+                    }
+                }
+            } else {
+                print_error_content();
+            }
+        ?>
     </div>
 </body>
 </html>
