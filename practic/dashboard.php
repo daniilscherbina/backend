@@ -39,6 +39,13 @@
             display: flex;
             flex-direction: column;
             color: white;
+            a {
+                color: white;
+                padding: 15px;
+                padding-left: 25px;
+                font-size: 16px;
+                text-decoration: none;
+            }
         }
         .top-subblock {
             height: 80px;
