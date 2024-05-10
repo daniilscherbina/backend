@@ -41,9 +41,7 @@
             color: white;
             a {
                 color: white;
-                padding: 15px;
-                padding-left: 25px;
-                margin-bottom: 25px;
+                margin: 25px;
                 font-size: 18px;
                 text-decoration: none;
             }
