@@ -29,5 +29,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             setcookie('request4', $_POST['last_name'], time() + 24 * 60 * 60);
             header('Location: index.php?request4');
         }
+        if ($_POST['request'] == 5) {
+            setcookie('request5_start', $_POST['request5_start'], time() + 24 * 60 * 60);
+            setcookie('request5_end', $_POST['request5_end'], time() + 24 * 60 * 60);
+            header('Location: index.php?request5');
+        }
     }
 }
