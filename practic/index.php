@@ -22,7 +22,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     setcookie('request4', '', 100000);
     setcookie('request5_start', '', 100000);
     setcookie('request5_end', '', 100000);
-    print($post['request4']);
     include('dashboard.php');
 } else {
     if (isset($_POST['request'])) {
