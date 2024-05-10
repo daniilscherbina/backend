@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 } else {
     if (isset($_POST['request'])) {
         if ($_POST['request'] == 4) {
-            setcookie('request4', $_POST['last_name']);
+            setcookie('request4', $_POST['last_name'], time() + 24 * 60 * 60);
             header('Location: index.php?request4');
         }
     }
