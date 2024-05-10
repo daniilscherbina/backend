@@ -5,8 +5,7 @@ function create_db_connection() {
     global $pass;
     print($user);
     print($pass);
-    return new PDO('mysql:host=localhost;dbname=' . $user, $user, $pass,
-                    [PDO::ATTR_PERSISTENT => true, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+   
 }
 
 function get_table_colown_names($table_name) {
