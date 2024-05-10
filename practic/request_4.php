@@ -3,8 +3,10 @@
         <?php print('Запрос под номером: 4'); ?>
     </div>
     <div class="top-subblock-content">
-        <input class="search-bar" type="text" placeholder="Фамилия страхового агента">
-        <button class="add-button">Выполнить запрос</button>
+        <form action="" method="POST">
+            <input class="search-bar" type="text" placeholder="Фамилия страхового агента">
+            <input type="submit" class="add-button"  value="Выполнить запрос">
+        </form>
     </div>
 </div>
 <div class="bottom-subblock">
