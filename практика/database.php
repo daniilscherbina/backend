@@ -8,7 +8,9 @@ function create_db_connection() {
 }
 
 function get_table_colown_names($table_name) {
+  print('start ');
   $db = create_db_connection();
+  print('hello ');
   $result = $db->query("SELECT * FROM " . $table_name);
   $columns = $result->fetch_fields();
   $column_names = array();
