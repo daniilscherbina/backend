@@ -49,7 +49,7 @@ $requests = array(
     $query->execute();
     return $query;
   },
-  '1' => function() {
+  '2' => function() {
     $db = create_db_connection();
     $query = $db->prepare("SELECT ia.id AS 'Код агента', CONCAT(ia.first_name, ' ', ia.last_name, ' ', ia.patronymic) AS 'Ф.И.О. агента', ia.bet AS 'Процент вознаграждения' FROM ia WHERE bet >= 20 AND bet <= 50;");
     $query->execute();
