@@ -37,6 +37,12 @@ $requests = array(
     $query->execute();
     return $query;
   },
+  '6' => function() {
+    $db = create_db_connection();
+    $query = $db->prepare("SELECT c.date AS 'Дата подписания договора', CONCAT(cl.first_name, ' ', cl.last_name, ' ', cl.patronymic) AS 'Ф.И.О. клиента', c.amount_of_insurance AS 'Сумма страхования', (amount_of_insurance * ((SELECT tariff FROM insurance_type WHERE id = c.id_insurance_type) - (SELECT discount FROM clients WHERE id = c.id_clients)) / 100) AS 'Размер страховой премии' FROM contracts c JOIN clients cl ON c.id_clients = cl.id;");
+    $query->execute();
+    return $query;
+  },
 );
 
 ?>
