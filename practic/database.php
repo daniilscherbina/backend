@@ -48,7 +48,7 @@ $requests = array(
     return get_result("SELECT ia.id AS 'Код агента', CONCAT(ia.first_name, ' ', ia.last_name, ' ', ia.patronymic) AS 'Ф.И.О. агента', ia.bet AS 'Процент вознаграждения' FROM ia WHERE bet >= 20 AND bet <= 50;");
   },
   '1' => function() {
-    return get_result("SELECT cl.id AS 'Код клиента', CONCAT(cl.first_name, ' ', cl.last_name, ' ', cl.patronymic) AS 'Ф.И.О. клиента', cl.discount AS 'Персональная скидка' FROM clients cl WHERE last_name = 'Иванов';");
+    return get_result("SELECT cl.id AS 'Код клиента', CONCAT(cl.first_name, ' ', cl.last_name, ' ', cl.patronymic) AS 'Ф.И.О. клиента', cl.discount AS 'Персональная скидка %' FROM clients cl WHERE last_name = 'Иванов';");
   },
 );
 
