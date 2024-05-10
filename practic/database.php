@@ -38,7 +38,7 @@ function is_valid_fio($fio) {
 function get_result_4($str) {
     if (!is_valid_fio($str)) return null;
     $db = create_db_connection();
-    $query = $db->prepare("SELECT ia.id AS 'Код агента', CONCAT(ia.first_name, ' ', ia.last_name, CASE WHEN ia.patronymic IS NOT NULL THEN CONCAT(' ', ia.patronymic) ELSE '' END) AS 'Ф.И.О. агента', ia.bet AS 'Процент вознаграждения' FROM insurance_agents ia WHERE ia.last_name = ':name';");
+    $query = $db->prepare("SELECT ia.id AS 'Код агента', CONCAT(ia.first_name, ' ', ia.last_name, CASE WHEN ia.patronymic IS NOT NULL THEN CONCAT(' ', ia.patronymic) ELSE '' END) AS 'Ф.И.О. агента', ia.bet AS 'Процент вознаграждения' FROM insurance_agents ia WHERE ia.last_name = :name;");
     $query->bindParam(':name', $str);
     $query->execute();
     return $query;
