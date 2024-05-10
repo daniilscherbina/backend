@@ -11,14 +11,7 @@
     <table>
         <?php
             require_once "database.php";
-            $names = get_table_colown_names($table_name);
-            print('<tr>');
-                foreach ($names as $name) {
-                    print('<th>');
-                        print($name);
-                    print('</th>');
-                }
-            print('</tr>');
+            
 
             $rows = get_all_rows_table($table_name);
             foreach ($rows as $row) {
