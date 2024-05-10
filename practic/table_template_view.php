@@ -18,7 +18,7 @@
         </tr>
         <?php
             require_once "database.php";
-            $db = create_db_connection();
+            $rows = get_all_rows_table($table_name);
             foreach ($rows as $row) {
                 print('<tr>');
                     foreach ($row as $col) {
