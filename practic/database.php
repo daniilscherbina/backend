@@ -9,7 +9,7 @@ function create_db_connection() {
 
 function get_table_colown_names($table_name) {
   $db = create_db_connection();
-  $result = $db->prepare("SELECT COLUMN_NAME FROM information_schema.columns WHERE table_name = ':table';");
+  $result = $db->prepare("SELECT COLUMN_NAME FROM information_schema.columns WHERE table_name = :table;");
   $result->bindParam(':table', $table_name);
   $result->execute();
   $rows = $rows = $result->fetchAll(PDO::FETCH_ASSOC);
