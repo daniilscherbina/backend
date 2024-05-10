@@ -22,10 +22,7 @@ function get_all_rows_table($table_name) {
   $db = create_db_connection();
     $query = $db->prepare("SELECT * FROM " . $table_name);
     $query->execute();
-    $rows = array();
-    while ($row = $query->fetch()) {
-        $rows[] = $row;
-    }
+    $rows = $rows = $query->fetchAll(PDO::FETCH_ASSOC);
     return $rows;
 }
 
