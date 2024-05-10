@@ -9,21 +9,23 @@
 </div>
 <div class="bottom-subblock">
     <table>
-        <tr>
-            <th>Колонка 1</th>
-            <th>Колонка 2</th>
-            <th>Колонка 3</th>
-            <th>Колонка 4</th>
-            <th>Колонка 5</th>
-        </tr>
         <?php
             require_once "database.php";
+            $names = get_table_colown_names($table_name);
+            print('<tr>');
+                foreach ($names as $name) {
+                    print('<th>');
+                        print($name);
+                    print('</th>');
+                }
+            print('</tr>');
+
             $rows = get_all_rows_table($table_name);
             foreach ($rows as $row) {
                 print('<tr>');
                     foreach ($row as $col) {
                         print('<td>');
-                            print(col);
+                            print($col);
                         print('</td>');
                     }
                 print('</tr>');
