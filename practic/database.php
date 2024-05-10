@@ -31,6 +31,19 @@ function get_result($str) {
     return $query;
 }
 
+function is_valid_fio($fio) {
+  return !empty($fio) && preg_match("/^[а-яА-Яa-zA-Z]+$/u", $fio);
+}
+
+function get_result_4($str) {
+    if (!is_valid_fio($str)) return null;
+    $db = create_db_connection();
+    $query = $db->prepare(SELECT ia.id AS 'Код агента', CONCAT(ia.first_name, ' ', ia.last_name, CASE WHEN ia.patronymic IS NOT NULL THEN CONCAT(' ', ia.patronymic) ELSE '' END) AS 'Ф.И.О. агента', ia.bet AS 'Процент вознаграждения' FROM insurance_agents ia WHERE ia.last_name = ':name';);
+    $query->bindParam(':name', $str);
+    $query->execute();
+    return $query;
+}
+
 $requests = array(
   '9' => "SELECT last_name as 'Фамилия', first_name as 'Имя', patronymic as 'Отчество', discount as 'Персональная скидка %' FROM clients WHERE discount = 0.5;",
   '8' => "SELECT date AS 'Дата подписания договора', MIN(amount_of_insurance) AS 'Минимальная сумма страхования', MAX(amount_of_insurance) AS 'Максимальная сумма страхования' FROM contracts GROUP BY date;",
