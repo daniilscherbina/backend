@@ -2,6 +2,7 @@
   $tables = ['insurance_type', 'clients', 'insurance_agents', 'contracts'];
 
   function print_error_content() {
+    print('Некорректные параметры в url');
   }
   function build_mains_table_view($table_name) {
     global $tables;
