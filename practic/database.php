@@ -27,7 +27,7 @@ function get_all_rows_table($table_name) {
 $requests = array(
   '9' => function() {
     $db = create_db_connection();
-    $query = $db->prepare("SELECT last_name as 'Фамилия', first_name as 'Имя', patronymic as 'Отчество', discount as 'Персональная скидка' FROM clients WHERE discount = 0.5;");
+    $query = $db->prepare("SELECT last_name as 'Фамилия', first_name as 'Имя', patronymic as 'Отчество', discount as 'Персональная скидка %' FROM clients WHERE discount = 0.5;");
     $query->execute();
     return $query;
   }
