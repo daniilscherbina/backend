@@ -1,6 +1,6 @@
 <?php
 require_once "../secret.php";
-print("aaaa")
+print("aaaa");
 function create_db_connection() {
     global $user;
     global $pass;
