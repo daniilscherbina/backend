@@ -11,7 +11,7 @@
             padding: 0;
         }
         .discription {
-            margin-buttom: 25px;
+            margin-bottom: 25px;
         }
         .left-block {
             padding-top: 75px;
