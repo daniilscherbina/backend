@@ -5,6 +5,10 @@
 
   $tables = ['insurance_type', 'clients', 'insurance_agents', 'contracts'];
 
+  $requests_discription = array(
+    '9' => 'Выбирает информацию о VIP клиентах, для которых процент скидки равен 0.5%'
+  );
+
   $views = array(
     'table' => function ($table_name) {
       global $tables;
@@ -13,6 +17,16 @@
       } else {
         include('table_template_view.php');
       }
+    },
+    'request' => function ($request_num) {
+      if(!in_array($request_num, $requests_discription)) {
+        print_error_content();
+      } else {
+        include('request_table_template.php');
+      }
+    },
+    'all_request' => function ($par) {
+      print('тут что-то должно быть');
     }
   );
 
