@@ -16,12 +16,18 @@
             <th>Колонка 4</th>
             <th>Колонка 5</th>
         </tr>
-        <tr>
-            <td>Данные 1</td>
-            <td>Данные 2</td>
-            <td>Данные 3</td>
-            <td>Данные 4</td>
-            <td>Данные 5</td>
-        </tr>
+        <?php
+            require_once "database.php";
+            $rows = get_all_rows_table($table_name);
+            foreach ($rows as $row) {
+                print('<tr>');
+                    foreach ($row as $col) {
+                        print('<td>');
+                            print(col);
+                        print('</td>');
+                    }
+                print('</tr>');
+            }
+        ?>
     </table>
 </div>
