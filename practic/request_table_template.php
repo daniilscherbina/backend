@@ -1,6 +1,6 @@
 <div class="top-subblock">
     <div class="top-subblock-header">
-        <?php print('Запрос под номером: ' . $request_num); ?>
+        <?php print('Запрос под номером: ' . $request_num . '; ' . $requests_discription[$request_num]); ?>
     </div>
     <div class="top-subblock-content">
         <input class="search-bar" type="text" placeholder="Поиск">
