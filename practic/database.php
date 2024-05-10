@@ -9,13 +9,11 @@ function create_db_connection() {
 
 function get_table_colown_names($table_name) {
   $db = create_db_connection();
-  $result = $db->query("SELECT * FROM " . $table_name);
-  $columns = $result->fetch_fields();
-  $column_names = array();
-  foreach ($columns as $column) {
-    $column_names[] = $column->name;
-  }
-  return $column_names;
+  $result = $db->prepare("SELECT COLUMN_NAME FROM information_schema.columns WHERE table_name = ':table';");
+  $result->bindParam(':fio', $fio);
+  $result->execute();
+  $rows = $rows = $result->fetchAll(PDO::FETCH_ASSOC);
+  return $rows;
 }
 
 function get_all_rows_table($table_name) {
