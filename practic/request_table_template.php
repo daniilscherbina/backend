@@ -11,7 +11,7 @@
         <?php
             require_once "database.php";
 
-            $result = $requests[$request_num]();
+            $result = get_result($requests[$request_num]);
 
             $rows = $result->fetchAll(PDO::FETCH_ASSOC);
 
