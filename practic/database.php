@@ -29,7 +29,7 @@ function get_result($str) {
     $query = $db->prepare($str);
     $query->execute();
     return $query;
-  },
+}
 
 $requests = array(
   '9' => function() {
