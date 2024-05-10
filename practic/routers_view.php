@@ -6,7 +6,7 @@
   $tables = ['insurance_type', 'clients', 'insurance_agents', 'contracts'];
 
   $requests_discription = array(
-    9 => 'Выбирает информацию о VIP клиентах, для которых процент скидки равен 0.5%'
+    "9" => 'Выбирает информацию о VIP клиентах, для которых процент скидки равен 0.5%'
   );
 
   $views = array(
