@@ -20,6 +20,7 @@
     },
     'request' => function ($request_num) {
       global $requests_discription;
+      print($requests_discription[$request_num]);
       if(!in_array(intval($request_num), $requests_discription)) {
         print_error_content();
       } else {
