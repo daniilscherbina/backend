@@ -6,7 +6,7 @@
   $tables = ['insurance_type', 'clients', 'insurance_agents', 'contracts'];
 
   $requests_discription = array(
-    "9" => 'Выбирает информацию о VIP клиентах, для которых процент скидки равен 0.5%'
+    9 => 'Выбирает информацию о VIP клиентах, для которых процент скидки равен 0.5%'
   );
 
   $views = array(
@@ -20,8 +20,7 @@
     },
     'request' => function ($request_num) {
       global $requests_discription;
-      print ($request_num);
-      if(!in_array($request_num, $requests_discription)) {
+      if(!in_array(intval($request_num), $requests_discription)) {
         print_error_content();
       } else {
         include('request_table_template.php');
