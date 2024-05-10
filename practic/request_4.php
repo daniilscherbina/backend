@@ -19,7 +19,7 @@
             require_once "database.php";
             global $post;
             if (isset($post['request4'])) {
-                $result = get_result_request_4($post['request4']);
+                $result = get_result_4($post['request4']);
 
                 $rows = $result->fetchAll(PDO::FETCH_ASSOC);
     
