@@ -34,6 +34,9 @@
     },
     'all_request' => function ($par) {
       include('all_request.php');
+    },
+    'request4' => function ($par) {
+      include('request_4.php');
     }
   );
 
