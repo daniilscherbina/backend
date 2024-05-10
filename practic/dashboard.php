@@ -10,6 +10,9 @@
             margin: 0;
             padding: 0;
         }
+        .discription {
+            margin-buttom: 25px;
+        }
         .left-block {
             padding-top: 75px;
             display: flex;
