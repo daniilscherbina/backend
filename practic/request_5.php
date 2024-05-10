@@ -20,7 +20,6 @@
             require_once "database.php";
             global $post;
             if (isset($post['request5_start']) && isset($post['request5_end'])) {
-                print('ggggg');
                 $result = get_result_5($post['request5_start'], $post['request5_end']);
                 if(!is_null($result)) {
                   $rows = $result->fetchAll(PDO::FETCH_ASSOC);
