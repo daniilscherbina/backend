@@ -1,5 +1,5 @@
 <?php
-require_once "../secret.php";
+include "../secret.php";
 function create_db_connection() {
     global $user;
     global $pass;
