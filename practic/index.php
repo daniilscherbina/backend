@@ -9,6 +9,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
       print('<h1>401 Требуется авторизация</h1>');
       exit();
     }
+    $post = array();
+    if (isset($_COOKIE['request4'])) {
+        $post['request4'] = $_COOKIE['request4'];
+    }
+    if (isset($_COOKIE['request5_start'])) {
+        $post['request4'] = $_COOKIE['request5_start'];
+    }
+    if (isset($_COOKIE['request5_end'])) {
+        $post['request4'] = $_COOKIE['request5_end'];
+    }
+    setcookie('request4', '', 100000);
+    setcookie('request5_start', '', 100000);
+    setcookie('request5_end', '', 100000);
     include('dashboard.php');
 } else {
     if (isset($_POST['request'])) {
