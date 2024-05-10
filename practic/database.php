@@ -44,6 +44,20 @@ function get_result_4($str) {
     return $query;
 }
 
+function is_valid_data($birth) {
+  return !empty($birth) && preg_match("/^(0[1-9]|[12][0-9]|3[01])\.(0[1-9]|1[012])\.(19|20)\d\d$/", $birth);
+}
+
+function get_result_5($start, $end) {
+    if (!is_valid_data($start) || !is_valid_data($end)) return null;
+    $db = create_db_connection();
+    $query = $db->prepare("SELECT CONCAT(clients.first_name, ' ', clients.last_name, CASE WHEN clients.patronymic IS NOT NULL THEN CONCAT(' ', clients.patronymic) ELSE '' END) AS 'Ф.И.О. клиента', insurance_type.name AS 'Тип страхования', contracts.amount_of_insurance AS 'Сумма страхования', contracts.date AS 'Дата заключения договора', CONCAT(insurance_agents.first_name, ' ', insurance_agents.last_name, CASE WHEN insurance_agents.patronymic IS NOT NULL THEN CONCAT(' ', insurance_agents.patronymic) ELSE '' END) AS 'Ф.И.О. агента' FROM contracts JOIN clients ON contracts.id_clients = clients.id JOIN insurance_type ON contracts.id_insurance_type = insurance_type.id JOIN insurance_agents ON contracts.id_insurance_agent = insurance_agents.id WHERE contracts.date BETWEEN :start AND :end;");
+    $query->bindParam(':start', $start);
+    $query->bindParam(':end', $end);
+    $query->execute();
+    return $query;
+}
+
 $requests = array(
   '9' => "SELECT last_name as 'Фамилия', first_name as 'Имя', patronymic as 'Отчество', discount as 'Персональная скидка %' FROM clients WHERE discount = 0.5;",
   '8' => "SELECT date AS 'Дата подписания договора', MIN(amount_of_insurance) AS 'Минимальная сумма страхования', MAX(amount_of_insurance) AS 'Максимальная сумма страхования' FROM contracts GROUP BY date;",
