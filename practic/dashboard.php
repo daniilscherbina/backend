@@ -16,6 +16,14 @@
         .discription {
             margin-bottom: 25px;
         }
+        form {
+          width: 500px;
+          margin: 0 auto;
+          padding: 20px;
+          background-color: #ffffff;
+          border-radius: 10px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
         .left-block {
             padding-top: 75px;
             display: flex;
