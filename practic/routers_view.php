@@ -41,14 +41,6 @@
     'request5' => function ($par) {
       include('request_5.php');
     },
-    'new_row' => function ($table) {
-      global $tables;
-      if(!in_array($table, $tables)) {
-        print_error_content();
-      } else {
-        include('add_row_template.php');
-      }
-    }
   );
 
   function open_view($parameters) {
