@@ -43,7 +43,7 @@
     },
     'new_row' => function ($table) {
       global $tables;
-      if(!in_array($table_name, $tables)) {
+      if(!in_array($table, $tables)) {
         print_error_content();
       } else {
         include('add_row_template.php');
