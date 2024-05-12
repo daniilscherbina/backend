@@ -16,7 +16,7 @@
         .discription {
             margin-bottom: 25px;
         }
-        form {
+        .new_row_form {
           width: 500px;
           margin: 0 auto;
           padding: 20px;
