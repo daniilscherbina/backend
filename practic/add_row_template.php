@@ -1,4 +1,4 @@
-<form action="" method="POST">
+<form action="" method="POST" class="new_row_form">
   <h1>Добавить новую запись в таблицу: <?php print($table); ?></h1>
   <?php
     require_once "database.php";
