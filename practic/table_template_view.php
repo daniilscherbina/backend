@@ -3,7 +3,6 @@
         <?php print('Просмотр содержимого таблицы: ' . $table_name); ?>
     </div>
     <div class="top-subblock-content">
-        <button class="add-button">Добавить новую запись</button>
     </div>
 </div>
 <div class="bottom-subblock">
