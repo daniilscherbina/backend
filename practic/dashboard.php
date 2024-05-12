@@ -129,7 +129,6 @@
 </head>
 <body>
     <div class="left-block">
-        <a href="#">Статистика</a><br>
         <a href="?table=clients">Клиенты</a><br>
         <a href="?table=insurance_agents">Страховые агенты</a><br>
         <a href="?table=contracts">Договоры</a><br>
