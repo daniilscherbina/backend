@@ -42,7 +42,12 @@
       include('request_5.php');
     },
     'new_row' => function ($table) {
-      include('add_row_template.php');
+      global $tables;
+      if(!in_array($table_name, $tables)) {
+        print_error_content();
+      } else {
+        include('add_row_template.php');
+      }
     }
   );
 
