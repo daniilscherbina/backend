@@ -1,7 +1,7 @@
 <form action="" method="POST" class="new_row_form">
   <h1>Добавить новую запись в таблицу: <?php print($table); ?></h1>
-  print('<input class="search-bar" type="hidden" id="add_new_row" name="add_new_row" value="' . $table . '">');
   <?php
+    print('<input class="search-bar" type="hidden" id="add_new_row" name="add_new_row" value="' . $table . '">');
     require_once "database.php";
     $names = get_table_colown_names($table);
     foreach ($names as $row) {
