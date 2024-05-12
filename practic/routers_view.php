@@ -40,6 +40,9 @@
     },
     'request5' => function ($par) {
       include('request_5.php');
+    },
+    'new_row' => function ($table) {
+      include('add_row_template.php');
     }
   );
 
