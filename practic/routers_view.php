@@ -48,6 +48,9 @@
       } else {
         include('add_row_template.php');
       }
+    },
+    'error' => function ($text) {
+      print($text);
     }
   );
 
