@@ -45,9 +45,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             $table_col_names = get_table_colown_names($_POST['add_new_row']);
             $correct = true;
             $counter = 0;
-            foreach ($names as $row) {
+            foreach ($table_col_names as $row) {
                 foreach ($row as $name) {
-                    if (true) {
+                    if (isset($_POST[$name])) {
                         if (!table_validator($_POST['add_new_row'], $name, $_POST[$name])) {
                             $correct = false;
                         } else {
