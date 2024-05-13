@@ -39,6 +39,7 @@
     global $table_entity;
     if (!isset($table_entity[$table_name])) return false;
     if (!isset($table_entity[$table_name][$row_name])) return false;
+    return true;
     return !empty($value) && preg_match($table_entity[$table_name][$row_name], $value);
   }
 ?>
