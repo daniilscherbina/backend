@@ -51,7 +51,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                         if (!table_validator($_POST['add_new_row'], $name, $_POST[$name])) {
                             $correct = false;
                         } else {
-                            global $counter;
                             $counter += 1;
                         }
                     }
