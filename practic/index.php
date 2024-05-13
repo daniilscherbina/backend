@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                 header('Location: index.php?error="таблица не была найдена"');
                 exit();
             }
-            $table_col_names = get_table_colown_names('$_POST['add_new_row']');
+            $table_col_names = get_table_colown_names($_POST['add_new_row']);
             $correct = true;
             $counter = 0;
             foreach ($names as $row) {
