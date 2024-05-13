@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             $counter = 0;
             foreach ($names as $row) {
                 foreach ($row as $name) {
-                    if (isset($_POST[$name])) {
+                    if (true) {
                         if (!table_validator($_POST['add_new_row'], $name, $_POST[$name])) {
                             $correct = false;
                         } else {
