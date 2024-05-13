@@ -76,7 +76,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             $req = substr($req, 0, -1);
             $req = $req . ');';
             $db = create_db_connection();
-            $db->beginTransaction();
             $stmt = $db->prepare($req);
             foreach ($table_col_names as $row) {
                 foreach ($row as $name) {
