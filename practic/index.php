@@ -85,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             }
             $stmt->execute();
 
-            header('Location: index.php?table=$_POST['add_new_row']');
+            header('Location: index.php?table=$_POST['add_new_row']);
             exit();
         }
     }
