@@ -35,7 +35,7 @@
     return count($table_entity[$table_name]);
   }  
 
-  function table_validator($table_name, $row_names, $value) {
+  function table_validator($table_name, $row_name, $value) {
     global $table_entity;
     if (!isset($table_entity[$table_name])) return false;
     if (!isset($table_entity[$table_name][$row_name])) return false;
