@@ -60,6 +60,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                 header('Location: index.php?error="Отправленные данные некорректы ' . $counter . ' ' . ($correct) ? 'true' : 'false' . '"');
                 exit();
             }
+            $req = "INSERT INTO " . $_POST['add_new_row'] . '(';
+            foreach ($table_col_names as $row) {
+                foreach ($row as $name) {
+                    $req = $req . $name . ',';
+                }
+            }
+            $req = substr($req, 0, -1);
+            $req = $req . ') VALUES (';
+            foreach ($table_col_names as $row) {
+                foreach ($row as $name) {
+                    $req = $req . ':' . $name . ',';
+                }
+            }
+            $req = substr($req, 0, -1);
+            $req = $req . ');';
+            $db = create_db_connection();
+            $db->beginTransaction();
+            $stmt = $db->prepare($req);
+            foreach ($table_col_names as $row) {
+                foreach ($row as $name) {
+                    $stmt->bindParam(':' . $name, $_POST[$name]);
+                }
+            }
+            $stmt->execute();
 
             header('Location: index.php?table=$_POST['add_new_row']');
             exit();
