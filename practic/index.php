@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                 }
             }
             if ($correct == false || $counter != get_count_rows($_POST['add_new_row'])) {
-                header('Location: index.php?error="Отправленные данные некорректы"');
+                header('Location: index.php?error="Отправленные данные некорректы ' . $counter . '"');
                 exit();
             }
 
