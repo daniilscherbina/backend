@@ -34,5 +34,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             setcookie('request5_end', $_POST['request5_end'], time() + 24 * 60 * 60);
             header('Location: index.php?request5');
         }
+    } else {
+        if (isset($_POST['add_new_row'])) {
+            
+        }
     }
 }
