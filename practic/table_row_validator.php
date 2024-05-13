@@ -29,8 +29,16 @@
     ),
   );
 
-  function table_validator($table_name, $row_name, $value) {
+  function get_count_rows($table_name) {
     global $table_entity;
-    return !empty($value) && preg_match($table_entity[$table_name[$row_name]], $value);
+    if (!isset($table_entity[$table_name])) return -1;
+    return count($table_entity[$table_name]);
+  }  
+
+  function table_validator($table_name, $row_names, $value) {
+    global $table_entity;
+    if (!isset($table_entity[$table_name])) return false;
+    if (!isset($table_entity[$table_name][$row_name])) return false;
+    return !empty($value) && preg_match($table_entity[$table_name][$row_name], $value);
   }
 ?>
