@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                 exit();
             }
 
-            header('Location: index.php?error="Отправленно"');
+            header('Location: index.php?table=$_POST['add_new_row']');
             exit();
         }
     }
