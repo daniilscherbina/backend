@@ -36,7 +36,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         }
     } else {
         if (isset($_POST['add_new_row'])) {
-            
+            require_once 'database.php';
+            require_once "table_row_validator.php";
+            if (get_count_rows($_POST['add_new_row']) == -1) {
+                header('Location: index.php?error="таблица не была найдена"');
+                exit();
+            }
+            $table_col_names = get_table_colown_names('$_POST['add_new_row']');
+            $correct = true;
+            $counter = 0;
+            foreach ($names as $row) {
+                foreach ($row as $name) {
+                    if (isset($_POST[$name])) {
+                        if (!table_validator($_POST['add_new_row'], $name, $_POST[$name])) {
+                            $correct = false;
+                        } else {
+                            $counter += 1;
+                        }
+                    }
+                }
+            }
+            if ($correct == false || $counter != get_count_rows($_POST['add_new_row'])) {
+                header('Location: index.php?error="Отправленные данные некорректы"');
+                exit();
+            }
+
+            header('Location: index.php?error="Отправленно"');
+            exit();
         }
     }
 }
