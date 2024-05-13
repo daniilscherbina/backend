@@ -4,7 +4,7 @@
     </div>
     <div class="top-subblock-content">
         <?php
-            print('<button class="add-button" onclick="window.location.href=?new_row=\'' . $table_name . '\'">Добавить новую запись</button>');
+            print('<button class="add-button" onclick="window.location.href=\'?new_row=' . $table_name . '\'">Добавить новую запись</button>');
         ?>
     </div>
 </div>
