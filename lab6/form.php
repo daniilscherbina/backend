@@ -90,7 +90,7 @@
       <label for="lan">Любимые языки::</label>
       <select multiple size="10" name="lan[]" id="lan" <?php if ($errors['lan']) {print 'class="error"';} ?> >
         <?php
-        require_once "database.php";
+        require_once "utils/database.php";
         try {
           $lan = get_languages();
           while ($row = $lan->fetch()) {
