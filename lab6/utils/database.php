@@ -43,13 +43,15 @@ function find_user($user_id) {
 function delete_answer($user_id) {
   $db = create_db_connection();
   $db->beginTransaction();
-  $query = $db->prepare("DELETE FROM answer WHERE id_answer = :id_answer");
-  $query->bindParam(':id_answer', $user_id);
-  $query->execute();
 
   $stmt3 = $db->prepare("DELETE FROM answer_language WHERE answer_id = :answer_id");
   $stmt3->bindParam(':answer_id', $user_id);
   $stmt3->execute();
+
+  $query = $db->prepare("DELETE FROM answer WHERE id_answer = :id_answer");
+  $query->bindParam(':id_answer', $user_id);
+  $query->execute();
+
   $db->commit();
 }
 
