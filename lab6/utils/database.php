@@ -28,6 +28,31 @@ function get_all_user_info() {
     return $rows;
 }
 
+function find_user($user_id) {
+  $db = create_db_connection();
+    $query = $db->prepare("SELECT * FROM answer WHERE id_answer=:id_answer");
+    $query->bindParam(':id_answer', $user_id);
+    $query->execute();
+    $rows = array();
+    while ($row = $query->fetch()) {
+        $rows[] = $row;
+    }
+    return count($rows);
+}
+
+function delete_user($user_id) {
+  $db = create_db_connection();
+  $db->beginTransaction();
+  $query = $db->prepare("DELETE FROM answer WHERE id_answer = :id_answer");
+  $query->bindParam(':id_answer', $user_id);
+  $query->execute();
+
+  $stmt3 = $db->prepare("DELETE FROM answer_language WHERE answer_id = :answer_id");
+  $stmt3->bindParam(':answer_id', $login);
+  $stmt3->execute();
+  $db->commit();
+}
+
 function language_exists($ids) {
     $db = create_db_connection();
     $placeholders = rtrim(str_repeat('?, ', count($ids)), ', '); // Генерация плейсхолдеров для запроса
