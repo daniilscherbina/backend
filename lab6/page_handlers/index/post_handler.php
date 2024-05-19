@@ -1,6 +1,8 @@
 <?php 
 $errors = FALSE;
-require_once "validator.php";
+
+require_once "utils/validator.php";
+
 if(!(isset($_POST['checkbox']) && $_POST['checkbox'] == 'yes')) {
   setcookie('no_error', '1', time() + 24 * 60 * 60);
   $errors = TRUE;
@@ -41,7 +43,7 @@ if (!is_valid_bio($_POST['biography'])) {
 }
 setcookie('biography_value', $_POST['biography'], time() + 24 * 60 * 60);
 
-require_once "database.php";
+require_once "utils/database.php";
 try {
   if (!isset($_POST['lan']) || !language_exists($_POST['lan'])) {
     setcookie('lan_error', '1', time() + 24 * 60 * 60);

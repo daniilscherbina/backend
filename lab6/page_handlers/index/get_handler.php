@@ -1,9 +1,6 @@
 <?php
-// В суперглобальном массиве $_GET PHP хранит все параметры, переданные в текущем запросе через URL.
 $messages = array();
 
-// В суперглобальном массиве $_COOKIE PHP хранит все имена и значения куки текущего запроса.
-// Выдаем сообщение об успешном сохранении.
 if (!empty($_COOKIE['save'])) {
   // Удаляем куку, указывая время устаревания в прошлом.
   setcookie('save', '', 100000);
@@ -30,7 +27,7 @@ $errors['biography'] = !empty($_COOKIE['biography_error']);
 $errors['lan'] = !empty($_COOKIE['lan_error']);
 $errors['no'] = !empty($_COOKIE['no_error']);
 
-require_once "form_cookies.php";
+require_once "utils/form_cookies.php";
 error_cookie_cl('fio', 'Укажите имя', $errors, $messages);
 error_cookie_cl('tel', 'Укажите номер телефона', $errors, $messages);
 error_cookie_cl('date_birth', 'Укажите дату рождения', $errors, $messages);
@@ -57,7 +54,6 @@ if (empty($errors) && !empty($_COOKIE[session_name()]) &&
   // предварительно санитизовав.
   printf('Вход с логином %s, uid %d', $_SESSION['login'], $_SESSION['uid']);
 }
-//
+
 include('form.php');
-// Завершаем работу скрипта.
 ?>

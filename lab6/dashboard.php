@@ -103,7 +103,7 @@
             </div>
             <div class="stat">
                 <?php
-                    require_once "database.php";
+                    require_once "utils/database.php";
                     $lan = get_languages();
                     while ($row = $lan->fetch()) {
                         printf('%s: %d человек<br>', $row['name'], get_lan_answer_count($row['id_lan']));
@@ -121,7 +121,7 @@
                     <th>Дата рождения</th>
                 </tr>
                 <?php
-                    require_once "database.php";
+                    require_once "utils/database.php";
                     $rows = get_all_user_info();
                     foreach ($rows as $row) {
                         print('<tr>');
