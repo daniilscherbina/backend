@@ -52,6 +52,10 @@ function delete_answer($user_id) {
   $query->bindParam(':id_answer', $user_id);
   $query->execute();
 
+  $query1 = $db->prepare("DELETE FROM users_table WHERE id = :id_answer");
+  $query1->bindParam(':id_answer', $user_id);
+  $query1->execute();
+
   $db->commit();
 }
 
