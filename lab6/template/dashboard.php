@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Лабораторная работа 6</title>
+    <title>Админка</title>
     <link rel="stylesheet" href="src/admin.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">

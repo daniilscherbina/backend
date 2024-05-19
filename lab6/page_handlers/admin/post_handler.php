@@ -4,6 +4,6 @@
         if (find_user($_POST['delete_answer']) > 0) {
             delete_answer($_POST['delete_answer']);
         }
-        header('Location: ./');
+        header('Location: ./admin.php');
     }
 ?>
