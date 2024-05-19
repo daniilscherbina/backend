@@ -18,7 +18,7 @@ if (!empty($_COOKIE) && isset($_COOKIE[session_name()]) && $_COOKIE[session_name
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-  include "template/login.php"
+  include "template/login.php";
 } else {
   require_once "utils/database.php";
   $hash = md5($_POST['pass']);
