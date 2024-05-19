@@ -42,12 +42,16 @@
                             print('<td>' . $row['pol'] . '</td>');
                             print('<td>' . $row['date_birth'] . '</td>');
                             print('<td>');
+                                print('<form action="" method="POST">');
                                 print('<input type="hidden" id="open_answer" name="open_answer" value="' . $row['id_answer'] . '">');
                                 print('<input type="submit" class="add-button" value="Подробнее">');
+                                print('</form>');
                             print('</td>');
                             print('<td>');
+                            print('<form action="" method="POST">');
                                 print('<input type="hidden" id="delete_answer" name="delete_answer" value="' . $row['id_answer'] . '">');
                                 print('<input type="submit" class="del-button" value="Удалить">');
+                                print('</form>');
                             print('</td>');
                         print('</tr>');
                     }
