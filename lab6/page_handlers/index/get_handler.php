@@ -55,5 +55,5 @@ if (empty($errors) && !empty($_COOKIE[session_name()]) &&
   printf('Вход с логином %s, uid %d', $_SESSION['login'], $_SESSION['uid']);
 }
 
-include('form.php');
+include('template/form.php');
 ?>

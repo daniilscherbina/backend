@@ -18,7 +18,7 @@ if (empty($_SERVER['PHP_AUTH_USER']) ||
   exit();
 }
 
-include('dashboard.php');
+include('template/dashboard.php');
 
 // *********
 // Здесь нужно прочитать отправленные ранее пользователями данные и вывести в таблицу.
