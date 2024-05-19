@@ -41,8 +41,14 @@
                             print('<td>' . $row['tel'] . '</td>');
                             print('<td>' . $row['pol'] . '</td>');
                             print('<td>' . $row['date_birth'] . '</td>');
-                            print('<td><button class="add-button">Подробнее</button></td>');
-                            print('<td><button class="del-button">Удалить</button></td>');
+                            print('<td>');
+                                print('<input type="hidden" id="open_answer" name="open_answer" value="' . $$row['id_answer'] . '">');
+                                print('<input type="submit" class="add-button" value="Подробнее">');
+                            print('</td>');
+                            print('<td>');
+                                print('<input type="hidden" id="delete_answer" name="delete_answer" value="' . $$row['id_answer'] . '">');
+                                print('<input type="submit" class="del-button" value="Удалить">');
+                            print('</td>');
                         print('</tr>');
                     }
                 ?>

@@ -18,25 +18,7 @@ if (!empty($_COOKIE) && isset($_COOKIE[session_name()]) && $_COOKIE[session_name
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-?>
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Логин</title>
-    <link rel="stylesheet" href="src/login.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="UTF-8">
-  </head>
-  <body>
-    <form action="" method="post">
-      <input name="login" placeholder="Логин"/>
-      <input name="pass" placeholder="Пароль"/>
-      <input type="submit" value="Войти" />
-    </form>
-  </body>
-</html>
-
-<?php
+  include "template/login.php"
 } else {
   require_once "utils/database.php";
   $hash = md5($_POST['pass']);
