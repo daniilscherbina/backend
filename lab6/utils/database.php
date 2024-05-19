@@ -40,7 +40,7 @@ function find_user($user_id) {
     return count($rows);
 }
 
-function delete_user($user_id) {
+function delete_answer($user_id) {
   $db = create_db_connection();
   $db->beginTransaction();
   $query = $db->prepare("DELETE FROM answer WHERE id_answer = :id_answer");
