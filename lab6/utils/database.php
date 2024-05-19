@@ -48,7 +48,7 @@ function delete_answer($user_id) {
   $query->execute();
 
   $stmt3 = $db->prepare("DELETE FROM answer_language WHERE answer_id = :answer_id");
-  $stmt3->bindParam(':answer_id', $login);
+  $stmt3->bindParam(':answer_id', $user_id);
   $stmt3->execute();
   $db->commit();
 }
