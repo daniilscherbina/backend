@@ -4,7 +4,7 @@
   header('Cache-Control: no-cache, must-revalidate');
 
   function error_content() {
-    header('Location: ./?page=form');
+    header('Location: ./index.php?page=form');
     exit();
   }
 
