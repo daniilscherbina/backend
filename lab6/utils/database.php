@@ -25,6 +25,18 @@ function get_lan_answer_count($id) {
   return $db->query("SELECT COUNT(*) as total FROM answer_language WHERE language_id=" . $id)->fetch()['total'];
 }
 
+function get_user($user_id) {
+  $db = create_db_connection();
+    $query = $db->prepare("SELECT * FROM answer WHERE id_answer=:id_answer");
+    $query->bindParam(':id_answer', $user_id);
+    $query->execute();
+    $rows = array();
+    while ($row = $query->fetch()) {
+        $rows[] = $row;
+    }
+    return $rows;
+}
+
 function get_all_user_info() {
     $db = create_db_connection();
     $query = $db->prepare("SELECT * FROM answer");
