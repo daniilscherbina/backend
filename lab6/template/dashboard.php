@@ -49,12 +49,14 @@
                                 print('<td>' . htmlspecialchars($row['date_birth'], ENT_QUOTES, 'UTF-8') . '</td>');
                                 print('<td>');
                                     print('<form action="" method="POST">');
+                                    print("<input type='hidden' name='csrf_token' value='" . $_SESSION['csrf_token'] . "'>");
                                     print('<input type="hidden" id="open_answer" name="open_answer" value="' . htmlspecialchars($row['id_answer']) . '">');
                                     print('<input type="submit" class="add-button" value="Подробнее">');
                                     print('</form>');
                                 print('</td>');
                                 print('<td>');
                                 print('<form action="" method="POST">');
+                                    print("<input type='hidden' name='csrf_token' value='" . $_SESSION['csrf_token'] . "'>");
                                     print('<input type="hidden" id="delete_answer" name="delete_answer" value="' . htmlspecialchars($row['id_answer']) . '">');
                                     print('<input type="submit" class="del-button" value="Удалить">');
                                     print('</form>');
