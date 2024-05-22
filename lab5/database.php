@@ -20,7 +20,7 @@ function language_exists($ids) {
     return $count > 0;
 }
 
-function find_user($user_id) {
+function get_user($user_id) {
   $db = create_db_connection();
     $query = $db->prepare("SELECT * FROM answer WHERE id_answer=:id_answer");
     $query->bindParam(':id_answer', $user_id);
@@ -29,7 +29,7 @@ function find_user($user_id) {
     while ($row = $query->fetch()) {
         $rows[] = $row;
     }
-    return count($rows);
+    return $rows;
 }
 
 function check_credentials($login, $password) {
