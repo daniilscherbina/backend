@@ -77,6 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     printf('Вход с логином %s, uid %d', $_SESSION['login'], $_SESSION['uid']);
   }
   //
+  print ($_SESSION['login']);
   include('form.php');
   // Завершаем работу скрипта.
   exit();
