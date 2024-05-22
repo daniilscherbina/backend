@@ -9,6 +9,7 @@
   <body>
     <form action="" method="POST">
       <?php
+        print_r($values);
         if (!empty($messages) && !empty($messages['yes'])) {
           print('<div id="yes_mess">');
             print($messages['yes']);
