@@ -50,13 +50,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
   // Складываем предыдущие значения полей в массив, если есть.
   $values = array();
-  values_set('fio', $values);
-  values_set('tel', $values);
-  values_set('date_birth', $values);
-  values_set('email', $values);
-  values_set('pol', $values);
-  values_set('biography', $values);
-  values_set('lan', $values);
+
+  if (!empty($_SESSION['login'])) {
+    require_once "utils/database.php";
+    try {
+          $values = get_all_user_info()[0];
+      } catch(PDOException $e){
+        print('Error');
+        exit();
+      }
+  } else {
+    values_set('fio', $values);
+    values_set('tel', $values);
+    values_set('date_birth', $values);
+    values_set('email', $values);
+    values_set('pol', $values);
+    values_set('biography', $values);
+    values_set('lan', $values);
+  }
 
   if (empty($errors) && !empty($_COOKIE[session_name()]) &&
       session_start() && !empty($_SESSION['login'])) {
