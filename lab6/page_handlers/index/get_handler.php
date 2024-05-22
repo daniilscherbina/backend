@@ -47,12 +47,22 @@ values_set('pol', $values);
 values_set('biography', $values);
 values_set('lan', $values);
 
-if (empty($errors) && !empty($_COOKIE[session_name()]) &&
+if (!empty($_COOKIE[session_name()]) &&
     session_start() && !empty($_SESSION['login'])) {
-  // TODO: загрузить данные пользователя из БД
-  // и заполнить переменную $values,
-  // предварительно санитизовав.
-  printf('Вход с логином %s, uid %d', $_SESSION['login'], $_SESSION['uid']);
+  require_once "utils/database.php";
+    try {
+          $res = get_user($_SESSION['login'])[0];
+          $values['fio'] = htmlspecialchars($res['fio'], ENT_QUOTES, 'UTF-8');
+          $values['tel'] = htmlspecialchars($res['tel'], ENT_QUOTES, 'UTF-8');
+          $values['date_birth'] = htmlspecialchars($res['date_birth'], ENT_QUOTES, 'UTF-8');
+          $values['email'] = htmlspecialchars($res['email'], ENT_QUOTES, 'UTF-8');
+          $values['pol'] = htmlspecialchars($res['pol'], ENT_QUOTES, 'UTF-8');
+          $values['biography'] = htmlspecialchars($res['biography'], ENT_QUOTES, 'UTF-8');
+    } catch(PDOException $e){
+      print('Error');
+      exit();
+    }
+    printf('Вход с логином %s', $_SESSION['login']);
 }
 
 include('template/form.php');
