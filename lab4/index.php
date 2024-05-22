@@ -91,6 +91,7 @@ if (!is_valid_pol($_POST['pol'])) {
   setcookie('pol_error', '1', time() + 24 * 60 * 60);
   $errors = TRUE;
 }
+setcookie('pol_value', $_POST['pol'], time() + 24 * 60 * 60);
 
 if (!is_valid_bio($_POST['biography'])) {
   setcookie('biography_error', '1', time() + 24 * 60 * 60);
