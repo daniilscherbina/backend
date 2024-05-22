@@ -8,7 +8,11 @@ function create_db_connection() {
 }
 
 function check_admin($log, $p) {
-    return $log == 'admin' && md5($p) == md5('50199');
+    $db = create_db_connection();
+    $query = $db->prepare("SELECT COUNT(*) FROM admins WHERE username = ? AND password = ?");
+    $query->execute([$log, $p]);
+    $count = $query->fetchColumn();
+    return $count > 0;
 }
 
 function get_languages() {
