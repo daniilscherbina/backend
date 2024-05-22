@@ -123,7 +123,7 @@ try {
   }
 }
 catch(PDOException $e){
-  print('Error : ' . $e->getMessage());
+  print('Error');
   exit();
 }
 
@@ -150,7 +150,13 @@ if (!empty($_COOKIE[session_name()]) &&
       session_start() && !empty($_SESSION['login'])) {
     // TODO: перезаписать данные в БД новыми данными,
     // кроме логина и пароля.
-    update_answer($_POST['fio'], $_POST['tel'], $_POST['date_birth'], $_POST['email'], $_POST['pol'], $_POST['biography'], $_POST['lan'], $_SESSION['uid']);
+    try {
+      update_answer($_POST['fio'], $_POST['tel'], $_POST['date_birth'], $_POST['email'], $_POST['pol'], $_POST['biography'], $_POST['lan'], $_SESSION['uid']);
+    }
+    catch(PDOException $e){
+      print('Error');
+      exit();
+    }
   }
   else {
     // Генерируем уникальный логин и пароль.
@@ -165,7 +171,7 @@ if (!empty($_COOKIE[session_name()]) &&
       setcookie('pass', $password);
     }
     catch(PDOException $e){
-      print('Error : ' . $e->getMessage());
+      print('Error');
       exit();
     }
   }
