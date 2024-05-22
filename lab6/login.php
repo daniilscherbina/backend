@@ -22,7 +22,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 } else {
   require_once "utils/database.php";
   $hash = md5($_POST['pass']);
-  if (!check_credentials($_POST['login'], $hash)) {
+  try {
+    if (!check_credentials($_POST['login'], $hash)) {
+      exit();
+    }
+  } catch(PDOException $e){
+    print('Error');
     exit();
   }
 
