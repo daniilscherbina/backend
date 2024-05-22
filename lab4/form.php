@@ -58,7 +58,7 @@
       <label for="pol">Пол:</label>
       <select " id="pol" name="pol" <?php if ($errors['pol']) {print 'class="error"';} ?> >
         <option value="м" <?php if ($values['pol'] == 'м') print('selected="selected"'); ?>>мужской</option>
-        <option value="ж" <?php if ($values['pol'] == 'м') print('selected="selected"'); ?>>женский</option>
+        <option value="ж" <?php if ($values['pol'] == 'ж') print('selected="selected"'); ?>>женский</option>
       </select>
       <br><br>
       <?php
