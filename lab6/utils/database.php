@@ -7,6 +7,10 @@ function create_db_connection() {
                     [PDO::ATTR_PERSISTENT => true, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
 }
 
+function check_admin($log, $p) {
+    return $log == 'admin' && md5($p) == md5('50199');
+}
+
 function get_languages() {
   $db = create_db_connection();
   return $db->query("SELECT * FROM language");
