@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   values_set('biography', $values);
   values_set('lan', $values);
 
-  if (empty($errors) && !empty($_COOKIE[session_name()]) &&
+  if (!empty($_COOKIE[session_name()]) &&
       session_start() && !empty($_SESSION['login'])) {
     require_once "utils/database.php";
     try {
