@@ -25,9 +25,8 @@ session_start();
 $session_lifetime = 300; // 5 минут
 
 if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity']) > $session_lifetime) {
-    // Если прошло больше времени, чем $session_lifetime, завершите сессию
-    session_unset();     // Удалить все переменные сессии
-    session_destroy();   // Уничтожить сессию
+    session_unset();
+    session_destroy();
     unset($_SERVER['PHP_AUTH_USER']);
     unset($_SERVER['PHP_AUTH_PW']);
     print("Сессия устарела. Пожалуйста, войдите снова.");
