@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   if (!empty($_SESSION['login'])) {
     require_once "utils/database.php";
     try {
-          $values = get_user($_SESSION['login']);
+          $values = get_user($_SESSION['login'])[0];
       } catch(PDOException $e){
         print('Error');
         exit();
