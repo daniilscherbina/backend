@@ -70,7 +70,7 @@
       ?>
     
       <label for="biography">Биография:</label><br>
-      <textarea id="biography" name="biography" rows="4" cols="50" <?php if ($errors['biography']) {print 'class="error"';} ?> value="<?php print $values['biography']; ?>"></textarea><br><br>
+      <textarea id="biography" name="biography" rows="4" cols="50" <?php if ($errors['biography']) {print 'class="error"';} ?>><?php print $values['biography']; ?></textarea><br><br>
       <?php
         if (!empty($messages) && !empty($messages['biography'])) {
           print('<div id="biography_mess">');
