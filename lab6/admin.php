@@ -22,7 +22,7 @@ try {
 
 session_start();
 
-$session_lifetime = 900; // 15 минут
+$session_lifetime = 300; // 5 минут
 
 if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity']) > $session_lifetime) {
     // Если прошло больше времени, чем $session_lifetime, завершите сессию
