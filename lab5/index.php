@@ -51,11 +51,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   // Складываем предыдущие значения полей в массив, если есть.
   $values = array();
 
-  if (!empty($_SESSION['uid'])) {
+  if (!empty($_SESSION['login'])) {
     require_once "utils/database.php";
-    print("ara");
     try {
-          $values = get_user($_SESSION['uid']);
+          $values = get_user($_SESSION['login']);
       } catch(PDOException $e){
         print('Error');
         exit();
