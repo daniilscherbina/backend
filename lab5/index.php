@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   // Складываем предыдущие значения полей в массив, если есть.
   $values = array();
 
-  if (!empty($_SESSION['login'])) {
+  if (!empty($_SESSION['uid'])) {
     require_once "utils/database.php";
     print("ara");
     try {
