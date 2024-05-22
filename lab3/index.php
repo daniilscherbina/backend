@@ -59,7 +59,7 @@ try {
   }
 }
 catch(PDOException $e){
-  print('Error : ' . $e->getMessage());
+  print('Error');
   exit();
 }
 
@@ -73,7 +73,7 @@ try {
   new_answer($_POST['fio'], $_POST['tel'], $_POST['date_birth'], $_POST['email'], $_POST['pol'], $_POST['biography'], $_POST['lan']);
 }
 catch(PDOException $e){
-  print('Error : ' . $e->getMessage());
+  print('Error');
   exit();
 }
 
