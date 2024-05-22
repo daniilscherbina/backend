@@ -53,6 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
   if (!empty($_SESSION['login'])) {
     require_once "utils/database.php";
+    print("ara");
     try {
           $values = get_user($_SESSION['login']);
       } catch(PDOException $e){
