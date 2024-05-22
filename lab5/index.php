@@ -62,6 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
       session_start() && !empty($_SESSION['login'])) {
     require_once "utils/database.php";
     try {
+      print ('aaaa');
           $res = get_user($_SESSION['login'])[0];
           $values['fio'] = htmlspecialchars($res['fio'], ENT_QUOTES, 'UTF-8');
           $values['tel'] = htmlspecialchars($res['tel'], ENT_QUOTES, 'UTF-8');
@@ -75,7 +76,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     }
     printf('Вход с логином %s, uid %d', $_SESSION['login'], $_SESSION['uid']);
   }
-  print ('aaaa');
   //
   include('form.php');
   // Завершаем работу скрипта.
