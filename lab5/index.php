@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
   if (!empty($_COOKIE[session_name()]) &&
       session_start() && !empty($_SESSION['login'])) {
-    require_once "utils/database.php";
+    require_once "database.php";
     try {
       print ('aaaa');
           $res = get_user($_SESSION['login'])[0];
