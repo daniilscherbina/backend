@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     require_once "utils/database.php";
     print("ara");
     try {
-          $values = get_user($_SESSION['login']);
+          $values = get_user($_SESSION['uid']);
       } catch(PDOException $e){
         print('Error');
         exit();
