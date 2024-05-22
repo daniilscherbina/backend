@@ -9,8 +9,6 @@
   <body>
     <form action="" method="POST">
       <?php
-        print_r($values);
-        print($_SESSION['login']);
         if (!empty($messages) && !empty($messages['yes'])) {
           print('<div id="yes_mess">');
             print($messages['yes']);
