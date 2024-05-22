@@ -7,7 +7,7 @@ require_once "utils/database.php";
 try {
     if (empty($_SERVER['PHP_AUTH_USER']) ||
         empty($_SERVER['PHP_AUTH_PW']) ||
-        check_admin($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])
+        !check_admin($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])
        ) {
       header('HTTP/1.1 401 Unanthorized');
       header('WWW-Authenticate: Basic realm="My site"');
