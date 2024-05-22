@@ -41,7 +41,7 @@
           }
         }
         catch(PDOException $e){
-          print('Error : ' . $e->getMessage());
+          print('Error');
           exit();
         }
         ?>
