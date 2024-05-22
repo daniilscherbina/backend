@@ -65,8 +65,8 @@
       
       <label for="pol">Пол:</label>
       <select " id="pol" name="pol" <?php if ($errors['pol']) {print 'class="error"';} ?> >
-        <option value="м">мужской</option>
-        <option value="ж">женский</option>
+        <option value="м" <?php if ($values['pol'] == 'м') print('selected="selected"'); ?>>мужской</option>
+        <option value="ж" <?php if ($values['pol'] == 'ж') print('selected="selected"'); ?>>женский</option>
       </select>
       <br><br>
       <?php
@@ -78,7 +78,7 @@
       ?>
     
       <label for="biography">Биография:</label><br>
-      <textarea id="biography" name="biography" rows="4" cols="50" <?php if ($errors['biography']) {print 'class="error"';} ?> value="<?php print $values['biography']; ?>"></textarea><br><br>
+      <textarea id="biography" name="biography" rows="4" cols="50" <?php if ($errors['biography']) {print 'class="error"';} ?>><?php print $values['biography']; ?></textarea><br><br>
       <?php
         if (!empty($messages) && !empty($messages['biography'])) {
           print('<div id="biography_mess">');
