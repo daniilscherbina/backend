@@ -16,8 +16,13 @@
                 <?php
                     require_once "utils/database.php";
                     $lan = get_languages();
-                    while ($row = $lan->fetch()) {
-                        printf('%s: %d человек<br>', $row['name'], get_lan_answer_count($row['id_lan']));
+                    try {
+                        while ($row = $lan->fetch()) {
+                            printf('%s: %d человек<br>', htmlspecialchars($row['name'], ENT_QUOTES, 'UTF-8'), htmlspecialchars(get_lan_answer_count($row['id_lan']), ENT_QUOTES, 'UTF-8'));
+                        }
+                    } catch(PDOException $e){
+                        print('Error');
+                        exit();
                     }
                 ?>
             </div>
@@ -33,28 +38,33 @@
                 </tr>
                 <?php
                     require_once "utils/database.php";
+                    try {
                     $rows = get_all_user_info();
-                    foreach ($rows as $row) {
-                        print('<tr>');
-                            print('<td>' . $row['fio'] . '</td>');
-                            print('<td>' . $row['email'] . '</td>');
-                            print('<td>' . $row['tel'] . '</td>');
-                            print('<td>' . $row['pol'] . '</td>');
-                            print('<td>' . $row['date_birth'] . '</td>');
-                            print('<td>');
+                        foreach ($rows as $row) {
+                            print('<tr>');
+                                print('<td>' . htmlspecialchars($row['fio'], ENT_QUOTES, 'UTF-8') . '</td>');
+                                print('<td>' . htmlspecialchars($row['email'], ENT_QUOTES, 'UTF-8') . '</td>');
+                                print('<td>' . htmlspecialchars($row['tel'], ENT_QUOTES, 'UTF-8') . '</td>');
+                                print('<td>' . htmlspecialchars($row['pol'], ENT_QUOTES, 'UTF-8') . '</td>');
+                                print('<td>' . htmlspecialchars($row['date_birth'], ENT_QUOTES, 'UTF-8') . '</td>');
+                                print('<td>');
+                                    print('<form action="" method="POST">');
+                                    print('<input type="hidden" id="open_answer" name="open_answer" value="' . htmlspecialchars($row['id_answer']) . '">');
+                                    print('<input type="submit" class="add-button" value="Подробнее">');
+                                    print('</form>');
+                                print('</td>');
+                                print('<td>');
                                 print('<form action="" method="POST">');
-                                print('<input type="hidden" id="open_answer" name="open_answer" value="' . $row['id_answer'] . '">');
-                                print('<input type="submit" class="add-button" value="Подробнее">');
-                                print('</form>');
-                            print('</td>');
-                            print('<td>');
-                            print('<form action="" method="POST">');
-                                print('<input type="hidden" id="delete_answer" name="delete_answer" value="' . $row['id_answer'] . '">');
-                                print('<input type="submit" class="del-button" value="Удалить">');
-                                print('</form>');
-                            print('</td>');
-                        print('</tr>');
-                    }
+                                    print('<input type="hidden" id="delete_answer" name="delete_answer" value="' . htmlspecialchars($row['id_answer']) . '">');
+                                    print('<input type="submit" class="del-button" value="Удалить">');
+                                    print('</form>');
+                                print('</td>');
+                            print('</tr>');
+                        }
+                    } catch(PDOException $e){
+                        print('Error');
+                        exit();
+                      }
                 ?>
             </table>
         </div>
