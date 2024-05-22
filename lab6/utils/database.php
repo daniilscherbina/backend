@@ -10,7 +10,7 @@ function create_db_connection() {
 function check_admin($log, $p) {
     $db = create_db_connection();
     $query = $db->prepare("SELECT COUNT(*) FROM admins WHERE username = ? AND password = ?");
-    $query->execute([$log, $p]);
+    $query->execute([$log, md5($p)]);
     $count = $query->fetchColumn();
     return $count > 0;
 }
