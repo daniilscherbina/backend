@@ -19,6 +19,7 @@ try {
     print('Error');
     exit();
 }
+session_start();
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   include "page_handlers/admin/get_handler.php";
