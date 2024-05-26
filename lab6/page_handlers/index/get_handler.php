@@ -47,10 +47,13 @@ values_set('pol', $values);
 values_set('biography', $values);
 values_set('lan', $values);
 
+$login_flag = false;
+
 if (!empty($_COOKIE[session_name()]) &&
     session_start() && !empty($_SESSION['login'])) {
   require_once "utils/database.php";
     try {
+          $login_flag = true;
           $res = get_user($_SESSION['login'])[0];
           $values['fio'] = htmlspecialchars($res['fio'], ENT_QUOTES, 'UTF-8');
           $values['tel'] = htmlspecialchars($res['tel'], ENT_QUOTES, 'UTF-8');
