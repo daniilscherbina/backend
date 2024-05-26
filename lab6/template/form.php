@@ -22,6 +22,8 @@
             print($messages['logpas']);
           print('</div>');
         }
+        if ($login_flag)
+          print("<input type='hidden' name='csrf_token' value='" . $_SESSION['csrf_token'] . "'>");
       ?>
       <label for="fio">ФИО:</label>
       <input type="text" id="fio" name="fio" <?php if ($errors['fio']) {print 'class="error"';} ?> value="<?php print $values['fio']; ?>"><br><br>
