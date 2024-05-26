@@ -58,6 +58,7 @@ if (!empty($_COOKIE[session_name()]) &&
           $values['email'] = htmlspecialchars($res['email'], ENT_QUOTES, 'UTF-8');
           $values['pol'] = htmlspecialchars($res['pol'], ENT_QUOTES, 'UTF-8');
           $values['biography'] = htmlspecialchars($res['biography'], ENT_QUOTES, 'UTF-8');
+          include "utils/csrf.php";
     } catch(PDOException $e){
       print('Error');
       exit();
